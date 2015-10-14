@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PWSHackathonClient", "PWSHackathonClient\PWSHackathonClient.csproj", "{AE9AF857-85B0-4532-9AF5-93012F874F12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PWSHackathonWCF", "PWSHackathonWCF\PWSHackathonWCF.csproj", "{3C87FCA3-709D-45FB-9ED7-D23BB7AE0C99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PWSHackathonDAL", "PWSHackathonDAL\PWSHackathonDAL.csproj", "{B9367D4C-7C69-4410-AF09-F93D2D70AB7C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE9AF857-85B0-4532-9AF5-93012F874F12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE9AF857-85B0-4532-9AF5-93012F874F12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE9AF857-85B0-4532-9AF5-93012F874F12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE9AF857-85B0-4532-9AF5-93012F874F12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C87FCA3-709D-45FB-9ED7-D23BB7AE0C99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C87FCA3-709D-45FB-9ED7-D23BB7AE0C99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C87FCA3-709D-45FB-9ED7-D23BB7AE0C99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C87FCA3-709D-45FB-9ED7-D23BB7AE0C99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9367D4C-7C69-4410-AF09-F93D2D70AB7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9367D4C-7C69-4410-AF09-F93D2D70AB7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9367D4C-7C69-4410-AF09-F93D2D70AB7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9367D4C-7C69-4410-AF09-F93D2D70AB7C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
