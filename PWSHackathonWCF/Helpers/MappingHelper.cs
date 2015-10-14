@@ -78,5 +78,45 @@
                 return null;
             }
         }
+
+        public static RiskQuestion DALRiskToWCFRiskQuestion(PWSHackathonDAL.Risk risk)
+        {
+            if (risk != null)
+            {
+                PWSHackathonDAL.Question q = risk.Question;
+                RiskQuestion rq = new RiskQuestion();
+
+                rq.Description = q.Description;
+                rq.IsHazard = q.IsHazard;
+                rq.Severity = q.Severity;
+                rq.RiskNumber = q.RiskNumber;
+                rq.Likelihood = risk.Likelihood;
+                rq.Response = risk.Response;
+                rq.RiskAssessmentSupplyReference = risk.RiskAssessment.SupplyReference;
+
+                return rq;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public static PWSHackathonDAL.Risk RiskQuestionToDALRisk(RiskQuestion riskQuestion)
+        {
+            if(riskQuestion != null)
+            {
+                PWSHackathonDAL.Risk r = new PWSHackathonDAL.Risk();
+
+                r.Likelihood = riskQuestion.Likelihood;
+                r.Response = riskQuestion.Response;
+
+                return r;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

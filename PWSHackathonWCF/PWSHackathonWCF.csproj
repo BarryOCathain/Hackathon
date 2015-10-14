@@ -75,6 +75,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Address.cs" />
+    <Compile Include="Data\RiskQuestion.cs" />
+    <Compile Include="Services\AddressService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\Address.cs" />
     <Compile Include="Services\IRiskQuestionService.cs" />
     <Compile Include="Services\RiskQuestionService.cs" />
     <Compile Include="Services\AddressService.cs" />
