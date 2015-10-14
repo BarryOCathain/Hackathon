@@ -13,7 +13,7 @@
                 LocalAuthority = riskAssessmentWCF.LocalAuthority,
                 SupplyName = riskAssessmentWCF.SupplyName,
                 SupplyReference = riskAssessmentWCF.SupplyReference,
-                //TODO DateCreated = riskAssessmentWCF.DateCreated
+                DateCreated = riskAssessmentWCF.DateCreated
             };
         }
 
@@ -29,7 +29,7 @@
                 LocalAuthority = riskAssessmentDAL.LocalAuthority,
                 SupplyName = riskAssessmentDAL.SupplyName,
                 SupplyReference = riskAssessmentDAL.SupplyReference,
-                //TODO DateCreated = riskAssessmentDAL.DateCreated
+                DateCreated = riskAssessmentDAL.DateCreated
             };
         }
 

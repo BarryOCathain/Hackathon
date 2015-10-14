@@ -54,7 +54,7 @@ namespace PWSHackathonWCF
         public RiskAssessment UpdateRiskAssessment(RiskAssessment updatedRiskAssessment)
         {
             var riskAssessment = _db.RiskAssessments
-                //TODO .OrderByDescending(ra => ra.DateCreated)
+                .OrderByDescending(ra => ra.DateCreated)
                 .FirstOrDefault(ra => ra.SupplyReference == updatedRiskAssessment.SupplyReference);
             riskAssessment.LocalAuthority = updatedRiskAssessment.LocalAuthority;
             riskAssessment.SupplyName = updatedRiskAssessment.SupplyName;

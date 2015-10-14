@@ -18,23 +18,14 @@ namespace PWSHackathonWCF
             if (address != null)
             {
                 var riskAssessment = _db.RiskAssessments
-                    //TODO .OrderByDescending(ra => ra.DateCreated)
+                    .OrderByDescending(ra => ra.DateCreated)
                     .FirstOrDefault(ra => ra.SupplyReference == address.RiskAssessmentSupplyRef);
 
                 if (riskAssessment == null) {
                     return null;
                 }
-
-                PWSHackathonDAL.Address dbAddress = new PWSHackathonDAL.Address();
                 
-                dbAddress.Name = address.Name;
-                dbAddress.AddressLine1 = address.Line1;
-                dbAddress.AddressLine2 = address.Line2;
-                dbAddress.AddressLine3 = address.Line3;
-                dbAddress.AddressLine4 = address.Line4;
-                dbAddress.Postcode = address.PostCode;
-                dbAddress.Telephone = address.TelephoneNumber;
-                dbAddress.Email = address.EMail;
+                var dbAddress = MappingHelper.WCFAddressToDALAddress(address);               
                 dbAddress.ID = riskAssessment.ID;
 
                 _db.Addresses.Add(dbAddress);
@@ -50,6 +41,7 @@ namespace PWSHackathonWCF
 
         public Address DeleteAddress(Address address)
         {
+            // TODO
             return null;
         }
 
@@ -121,7 +113,7 @@ namespace PWSHackathonWCF
         {
             List<Address> ret = new List<Address>();
             var riskAssessment = _db.RiskAssessments
-                //TODO .OrderByDescending(ra => ra.DateCreated)
+                .OrderByDescending(ra => ra.DateCreated)
                 .FirstOrDefault(ra => ra.SupplyReference == riskAssessmentSupplyRef);
             if (riskAssessment == null) {
                 return ret;
