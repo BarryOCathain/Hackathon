@@ -13,43 +13,69 @@ namespace PWSHackathonWCF
 
         public Address CreateAddress(Address address)
         {
-            PWSHackathonDAL.Address dbAddress = new PWSHackathonDAL.Address();
-            dbAddress.AddressLine1 = address.Line1;
-            dbAddress.AddressLine2 = address.Line2;
+            if (address != null)
+            {
+                PWSHackathonDAL.Address dbAddress = new PWSHackathonDAL.Address();
 
+                dbAddress.Name = address.Name;
+                dbAddress.AddressLine1 = address.Line1;
+                dbAddress.AddressLine2 = address.Line2;
+                dbAddress.AddressLine3 = address.Line3;
+                dbAddress.AddressLine4 = address.Line4;
+                dbAddress.Postcode = address.PostCode;
+                dbAddress.Telephone = address.TelephoneNumber;
+                dbAddress.Email = address.EMail;
 
-            _db.Addresses.Add(dbAddress);
+                _db.Addresses.Add(dbAddress);
+                _db.SaveChanges();
 
-            _db.SaveChanges();
-
-            Address ret = new Address();
-
-
-            return ret;
+                return DALAddressToWCFAddress(dbAddress); 
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public Address DeleteAddress(Address address)
         {
-            Address ret = new Address();
-
-
-            return ret;
+            return null;
         }
 
         public Address GetAddress(string postcode)
         {
-            Address ret = new Address();
+            PWSHackathonDAL.Address ret = _db.Addresses
+                .Where(a => a.Postcode == postcode)
+                .FirstOrDefault();
 
-            ret.PostCode = postcode;
-
-            return ret;
+            if (ret != null)
+            {
+                return DALAddressToWCFAddress(ret); 
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public List<Address> GetAllAddresses()
         {
+            List<PWSHackathonDAL.Address> dalAdd = _db.Addresses.ToList();
             List<Address> ret = new List<Address>();
 
-            return ret;
+            foreach (PWSHackathonDAL.Address address in dalAdd)
+            {
+                ret.Add(DALAddressToWCFAddress(address));
+            }
+
+            if (ret != null)
+            {
+                return ret;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public Address UpdateAddress(Address address)
@@ -60,8 +86,9 @@ namespace PWSHackathonWCF
                 .Where(a => a.Postcode == wcfPostcode)
                 .FirstOrDefault();
 
-            if (tempAddress != null)
+            if(tempAddress != null)
             {
+                tempAddress.Name = address.Name;
                 tempAddress.AddressLine1 = address.Line1;
                 tempAddress.AddressLine2 = address.Line1;
                 tempAddress.AddressLine3 = address.Line3;
@@ -71,14 +98,58 @@ namespace PWSHackathonWCF
 
                 _db.SaveChanges();
 
-                return tempAddress;
-
+                return DALAddressToWCFAddress(tempAddress);
             }
+            else
+            {
+                return null;
+            }
+        }
 
+        private PWSHackathonDAL.Address WCFAddressToDALAddress(Address address)
+        {
+            if (address != null)
+            {
+                PWSHackathonDAL.Address output = new PWSHackathonDAL.Address();
 
-            Address ret = new Address();
+                output.Name = address.Name;
+                output.AddressLine1 = address.Line1;
+                output.AddressLine2 = address.Line2;
+                output.AddressLine3 = address.Line3;
+                output.AddressLine4 = address.Line4;
+                output.Email = address.EMail;
+                output.Postcode = address.PostCode;
+                output.Telephone = address.TelephoneNumber;
 
-            return ret;
+                return output;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        private Address DALAddressToWCFAddress(PWSHackathonDAL.Address address)
+        {
+            if (address != null)
+            {
+                Address output = new Address();
+
+                output.Name = address.Name;
+                output.Line1 = address.AddressLine1;
+                output.Line2 = address.AddressLine2;
+                output.Line3 = address.AddressLine3;
+                output.Line4 = address.AddressLine4;
+                output.PostCode = address.Postcode;
+                output.TelephoneNumber = address.Telephone;
+                output.EMail = address.Email;
+
+                return output;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public RiskAssessment CreateRiskAssessment(RiskAssessment riskAssessment)
