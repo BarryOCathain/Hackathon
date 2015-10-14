@@ -5,9 +5,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="669ecca045bb4a63bec984424750291e" Name="Diagram1">
-        <EntityTypeShape EntityType="PWS_DatabaseModel.Address" Width="2.5" PointX="3.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PWS_DatabaseModel.Address" Width="2.5" PointX="2.5" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="PWS_DatabaseModel.RiskAssessment" Width="1.5" PointX="0.5" PointY="0.5" />
         <AssociationConnector Association="PWS_DatabaseModel.RiskAssessmentAddress" />
+        <EntityTypeShape EntityType="PWS_DatabaseModel.Risk" Width="1.625" PointX="0.5" PointY="3.875" />
+        <EntityTypeShape EntityType="PWS_DatabaseModel.Question" Width="1.5" PointX="3.5" PointY="3.875" />
+        <AssociationConnector Association="PWS_DatabaseModel.RiskAssessmentRiskAssessmentQuestion" />
+        <AssociationConnector Association="PWS_DatabaseModel.QuestionRiskAssessmentQuestion" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

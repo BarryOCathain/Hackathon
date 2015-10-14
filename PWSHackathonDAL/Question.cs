@@ -12,23 +12,20 @@ namespace PWSHackathonDAL
     using System;
     using System.Collections.Generic;
     
-    public partial class RiskAssessment
+    public partial class Question
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public RiskAssessment()
+        public Question()
         {
-            this.Addresses = new HashSet<Address>();
             this.RiskAssessmentQuestions = new HashSet<Risk>();
         }
     
         public int ID { get; set; }
-        public string LocalAuthority { get; set; }
-        public string SupplyReference { get; set; }
-        public string SupplyName { get; set; }
-        public System.DateTime DateCreated { get; set; }
+        public string Description { get; set; }
+        public bool IsHazard { get; set; }
+        public int Severity { get; set; }
+        public string RiskNumber { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Address> Addresses { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Risk> RiskAssessmentQuestions { get; set; }
     }

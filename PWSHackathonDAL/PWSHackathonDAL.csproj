@@ -70,6 +70,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PWSModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Question.cs">
+      <DependentUpon>PWSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Risk.cs">
+      <DependentUpon>PWSModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="RiskAssessment.cs">
       <DependentUpon>PWSModel.tt</DependentUpon>
     </Compile>

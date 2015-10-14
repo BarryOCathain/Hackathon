@@ -4,52 +4,106 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="PWS_DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Addresses">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar(max)" />
-          <Property Name="AddressLine1" Type="nvarchar(max)" />
-          <Property Name="AddressLine2" Type="nvarchar(max)" />
-          <Property Name="AddressLine3" Type="nvarchar(max)" />
-          <Property Name="AddressLine4" Type="nvarchar(max)" />
-          <Property Name="Postcode" Type="nvarchar(max)" />
-          <Property Name="Telephone" Type="nvarchar(max)" />
-          <Property Name="Email" Type="nvarchar(max)" />
-          <Property Name="RiskAssessmentID" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="RiskAssessments">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="LocalAuthority" Type="nvarchar(max)" />
-          <Property Name="SupplyReference" Type="nvarchar(max)" />
-          <Property Name="SupplyName" Type="nvarchar(max)" />
-        </EntityType>
-        <Association Name="FK_RiskAssessmentAddress">
-          <End Role="RiskAssessments" Type="Self.RiskAssessments" Multiplicity="1" />
-          <End Role="Addresses" Type="Self.Addresses" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RiskAssessments">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Addresses">
-              <PropertyRef Name="RiskAssessmentID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="PWS_DatabaseModelStoreContainer">
-          <EntitySet Name="Addresses" EntityType="Self.Addresses" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RiskAssessments" EntityType="Self.RiskAssessments" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_RiskAssessmentAddress" Association="Self.FK_RiskAssessmentAddress">
-            <End Role="RiskAssessments" EntitySet="RiskAssessments" />
-            <End Role="Addresses" EntitySet="Addresses" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema></edmx:StorageModels>
+    <Schema Namespace="PWS_DatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="PWS_DatabaseModelStoreContainer">
+    <EntitySet Name="Addresses" EntityType="PWS_DatabaseModel.Store.Addresses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RiskAssessments" EntityType="PWS_DatabaseModel.Store.RiskAssessments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Risks" EntityType="PWS_DatabaseModel.Store.Risks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Questions" EntityType="PWS_DatabaseModel.Store.Questions" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="RiskAssessmentAddress" Association="PWS_DatabaseModel.Store.RiskAssessmentAddress">
+      <End Role="RiskAssessment" EntitySet="RiskAssessments" />
+      <End Role="Address" EntitySet="Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="RiskAssessmentRiskAssessmentQuestion" Association="PWS_DatabaseModel.Store.RiskAssessmentRiskAssessmentQuestion">
+      <End Role="RiskAssessment" EntitySet="RiskAssessments" />
+      <End Role="RiskAssessmentQuestion" EntitySet="Risks" />
+    </AssociationSet>
+    <AssociationSet Name="QuestionRiskAssessmentQuestion" Association="PWS_DatabaseModel.Store.QuestionRiskAssessmentQuestion">
+      <End Role="Question" EntitySet="Questions" />
+      <End Role="RiskAssessmentQuestion" EntitySet="Risks" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Addresses">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="AddressLine1" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="AddressLine2" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="AddressLine3" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="AddressLine4" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Postcode" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Telephone" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="RiskAssessmentID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RiskAssessments">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="LocalAuthority" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SupplyReference" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SupplyName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Risks">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RiskAssessmentID" Type="int" Nullable="false" />
+    <Property Name="QuestionID" Type="int" Nullable="false" />
+    <Property Name="Likelihood" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Questions">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsHazard" Type="bit" Nullable="false" />
+    <Property Name="Severity" Type="int" Nullable="false" />
+    <Property Name="RiskNumber" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="RiskAssessmentAddress">
+    <End Role="RiskAssessment" Type="PWS_DatabaseModel.Store.RiskAssessments" Multiplicity="1" />
+    <End Role="Address" Type="PWS_DatabaseModel.Store.Addresses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RiskAssessment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="RiskAssessmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RiskAssessmentRiskAssessmentQuestion">
+    <End Role="RiskAssessment" Type="PWS_DatabaseModel.Store.RiskAssessments" Multiplicity="1" />
+    <End Role="RiskAssessmentQuestion" Type="PWS_DatabaseModel.Store.Risks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RiskAssessment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RiskAssessmentQuestion">
+        <PropertyRef Name="RiskAssessmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="QuestionRiskAssessmentQuestion">
+    <End Role="Question" Type="PWS_DatabaseModel.Store.Questions" Multiplicity="1" />
+    <End Role="RiskAssessmentQuestion" Type="PWS_DatabaseModel.Store.Risks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RiskAssessmentQuestion">
+        <PropertyRef Name="QuestionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PWS_DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -76,6 +130,16 @@
             <End Role="RiskAssessment" EntitySet="RiskAssessments" />
             <End Role="Address" EntitySet="Addresses" />
           </AssociationSet>
+          <EntitySet Name="Risks" EntityType="PWS_DatabaseModel.Risk" />
+          <EntitySet Name="Questions" EntityType="PWS_DatabaseModel.Question" />
+          <AssociationSet Name="RiskAssessmentRiskAssessmentQuestion" Association="PWS_DatabaseModel.RiskAssessmentRiskAssessmentQuestion">
+            <End Role="RiskAssessment" EntitySet="RiskAssessments" />
+            <End Role="RiskAssessmentQuestion" EntitySet="Risks" />
+          </AssociationSet>
+          <AssociationSet Name="QuestionRiskAssessmentQuestion" Association="PWS_DatabaseModel.QuestionRiskAssessmentQuestion">
+            <End Role="Question" EntitySet="Questions" />
+            <End Role="RiskAssessmentQuestion" EntitySet="Risks" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="RiskAssessment">
           <Key>
@@ -86,6 +150,8 @@
           <Property Name="SupplyReference" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SupplyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Addresses" Relationship="PWS_DatabaseModel.RiskAssessmentAddress" FromRole="RiskAssessment" ToRole="Address" />
+          <NavigationProperty Name="RiskAssessmentQuestions" Relationship="PWS_DatabaseModel.RiskAssessmentRiskAssessmentQuestion" FromRole="RiskAssessment" ToRole="RiskAssessmentQuestion" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" />
         </EntityType>
         <Association Name="RiskAssessmentAddress">
           <End Type="PWS_DatabaseModel.RiskAssessment" Role="RiskAssessment" Multiplicity="1" />
@@ -96,6 +162,52 @@
             </Principal>
             <Dependent Role="Address">
               <PropertyRef Name="RiskAssessmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Risk">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="RiskAssessment" Relationship="PWS_DatabaseModel.RiskAssessmentRiskAssessmentQuestion" FromRole="RiskAssessmentQuestion" ToRole="RiskAssessment" />
+          <Property Name="RiskAssessmentID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Question" Relationship="PWS_DatabaseModel.QuestionRiskAssessmentQuestion" FromRole="RiskAssessmentQuestion" ToRole="Question" />
+          <Property Name="QuestionID" Type="Int32" Nullable="false" />
+          <Property Name="Likelihood" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="RiskAssessmentQuestions" Relationship="PWS_DatabaseModel.QuestionRiskAssessmentQuestion" FromRole="Question" ToRole="RiskAssessmentQuestion" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="IsHazard" Type="Boolean" Nullable="false" />
+          <Property Name="Severity" Type="Int32" Nullable="false" />
+          <Property Name="RiskNumber" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="RiskAssessmentRiskAssessmentQuestion">
+          <End Type="PWS_DatabaseModel.RiskAssessment" Role="RiskAssessment" Multiplicity="1" />
+          <End Type="PWS_DatabaseModel.Risk" Role="RiskAssessmentQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RiskAssessment">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RiskAssessmentQuestion">
+              <PropertyRef Name="RiskAssessmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="QuestionRiskAssessmentQuestion">
+          <End Type="PWS_DatabaseModel.Question" Role="Question" Multiplicity="1" />
+          <End Type="PWS_DatabaseModel.Risk" Role="RiskAssessmentQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RiskAssessmentQuestion">
+              <PropertyRef Name="QuestionID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -128,6 +240,28 @@
           <ScalarProperty Name="LocalAuthority" ColumnName="LocalAuthority" />
           <ScalarProperty Name="SupplyReference" ColumnName="SupplyReference" />
           <ScalarProperty Name="SupplyName" ColumnName="SupplyName" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Risks">
+      <EntityTypeMapping TypeName="IsTypeOf(PWS_DatabaseModel.Risk)">
+        <MappingFragment StoreEntitySet="Risks">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RiskAssessmentID" ColumnName="RiskAssessmentID" />
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+          <ScalarProperty Name="Likelihood" ColumnName="Likelihood" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Questions">
+      <EntityTypeMapping TypeName="IsTypeOf(PWS_DatabaseModel.Question)">
+        <MappingFragment StoreEntitySet="Questions">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsHazard" ColumnName="IsHazard" />
+          <ScalarProperty Name="Severity" ColumnName="Severity" />
+          <ScalarProperty Name="RiskNumber" ColumnName="RiskNumber" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
