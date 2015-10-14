@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a8909e79-7891-4998-9c71-da59b59fbae1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="99bd173a-9a7a-438a-bb49-380c8e0e93af" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,11 +22,11 @@
     <MetadataSource Address="http://localhost:64972/PWSService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="PWSService.wsdl" MetadataType="Wsdl" ID="20fab75d-0d84-4a4b-a33d-f60bff907a0c" SourceId="1" SourceUrl="http://localhost:64972/PWSService.svc?wsdl" />
-    <MetadataFile FileName="PWSService.xsd" MetadataType="Schema" ID="bcae3b26-9331-4da7-bd97-8cf10c561d78" SourceId="1" SourceUrl="http://localhost:64972/PWSService.svc?xsd=xsd1" />
-    <MetadataFile FileName="PWSService.disco" MetadataType="Disco" ID="c24e784f-5eec-4045-b1aa-aa7dede8851b" SourceId="1" SourceUrl="http://localhost:64972/PWSService.svc?disco" />
-    <MetadataFile FileName="PWSService1.xsd" MetadataType="Schema" ID="c0f6d8f5-ded7-448a-93a7-bc2212c8986f" SourceId="1" SourceUrl="http://localhost:64972/PWSService.svc?xsd=xsd0" />
-    <MetadataFile FileName="PWSService2.xsd" MetadataType="Schema" ID="ddb1ea45-f6f1-427c-bac7-5c32281628a5" SourceId="1" SourceUrl="http://localhost:64972/PWSService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PWSService.wsdl" MetadataType="Wsdl" ID="c2ac5bf1-34c0-401f-b459-0ba71c2bf243" SourceId="1" SourceUrl="http://localhost:64972/PWSService.svc?wsdl" />
+    <MetadataFile FileName="PWSService.xsd" MetadataType="Schema" ID="4b537db1-4941-45d2-bdee-ac78db2c2eb7" SourceId="1" SourceUrl="http://localhost:64972/PWSService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PWSService.disco" MetadataType="Disco" ID="1fc351c4-4cc0-481c-976a-d0435c4bf42a" SourceId="1" SourceUrl="http://localhost:64972/PWSService.svc?disco" />
+    <MetadataFile FileName="PWSService1.xsd" MetadataType="Schema" ID="532a3083-cbe0-4384-9af8-b4e362b017e0" SourceId="1" SourceUrl="http://localhost:64972/PWSService.svc?xsd=xsd0" />
+    <MetadataFile FileName="PWSService2.xsd" MetadataType="Schema" ID="ae140bcd-fa27-4a9a-9053-dde668e3f584" SourceId="1" SourceUrl="http://localhost:64972/PWSService.svc?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
