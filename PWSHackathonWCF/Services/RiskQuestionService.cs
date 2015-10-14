@@ -14,25 +14,33 @@ namespace PWSHackathonWCF
             _db = db;
         }
 
-        public RiskQuestion CreateRiskQuestion(RiskQuestion riskQuestion)
-        {
-            if (riskQuestion == null)
+        public List<RiskQuestion> CreateBlankRisks(string riskAssessmentSupplyReference) {
+            var result = new List<RiskQuestion>();
+            var riskAssessment = _db.RiskAssessments
+                  .OrderByDescending(ra => ra.DateCreated)
+                  .FirstOrDefault(ra => ra.SupplyReference == riskAssessmentSupplyReference);
+
+            if (riskAssessment == null)
             {
-                return null;
+                return result;
             }
-            var risk = MappingHelper.riskWCFToDAL(riskQuestion);
-            if (_db.Risks.Any(r => 
-                   r.RiskAssessment.SupplyReference == riskQuestion.RiskAssessmentRefSupplier &&
-                   r.Question.RiskNumber == riskQuestion.RiskNumber))
+
+            foreach (var question in _db.Questions)
             {
-                return null;
+                var risk = new Risk
+                {
+                    QuestionID = question.ID,
+                    RiskAssessmentID = riskAssessment.ID,
+                };
+                risk = _db.Risks.Add(risk);
+                _db.SaveChanges();
+                var riskQuestion = MappingHelper.DALRiskToWCFRiskQuestion(risk);
+                result.Add(riskQuestion);
             }
-            risk = _db.Risks.Add(risk);
-            _db.SaveChanges();
-            return MappingHelper.riskDALToWCF(risk);
+            return result;
         }
 
-        public RiskQuestionService UpdateRiskQuestion(RiskQuestion riskQuestion) {
+        public RiskQuestion UpdateRiskQuestion(RiskQuestion riskQuestion) {
             if (riskQuestion == null)
             {
                 return null;
@@ -53,7 +61,7 @@ namespace PWSHackathonWCF
             risk.Likelihood = riskQuestion.Likelihood;
             risk.Response = riskQuestion.Response;
             _db.SaveChanges();
-            return MappingHelper.riskDALToWCF(risk);    
+            return MappingHelper.DALRiskToWCFRiskQuestion(risk);    
         }
 
         public List<RiskQuestion> GetAllRiskQuestions()
@@ -61,7 +69,7 @@ namespace PWSHackathonWCF
             List<RiskQuestion> riskQuestions = new List<RiskQuestion>();
             foreach (var question in _db.Questions)
             {
-                riskQuestions.Add(MappingHelper.riskDALToWCF(question));
+                riskQuestions.Add(MappingHelper.DALRiskToWCFRiskQuestion(question));
             }
             return riskQuestions;           
         }
@@ -83,7 +91,7 @@ namespace PWSHackathonWCF
 
             foreach (var risk in risks)
             {
-                result.Add(MappingHelper.riskDALToWCF(risk));
+                result.Add(MappingHelper.DALRiskToWCFRiskQuestion(risk));
             }
             return result;
         }

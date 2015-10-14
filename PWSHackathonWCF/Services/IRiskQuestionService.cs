@@ -8,7 +8,7 @@ namespace PWSHackathonWCF
     public interface IRiskQuestionService
     {
         [OperationContract]
-        RiskQuestion CreateRiskQuestion(RiskQuestion riskQuestion);
+        List<RiskQuestion> CreateBlankRisks(string riskAssessmentSupplyReference);
 
         [OperationContract]
         List<RiskQuestion> GetAllRiskQuestions();

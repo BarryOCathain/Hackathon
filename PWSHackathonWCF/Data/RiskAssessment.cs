@@ -16,6 +16,6 @@ namespace PWSHackathonWCF
         public String SupplyName { get; set; }
 
         [DataMember]
-        public string DateCreated { get; internal set; }
+        public DateTime DateCreated { get; internal set; }
     }
 }
