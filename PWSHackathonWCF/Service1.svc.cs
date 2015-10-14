@@ -27,6 +27,7 @@ namespace PWSHackathonWCF
             {
                 composite.StringValue += "Suffix";
             }
+            Console.WriteLine("TEST");
             return composite;
         }
     }
