@@ -17,7 +17,7 @@ namespace PWSHackathonDAL
         public int ID { get; set; }
         public int RiskAssessmentID { get; set; }
         public int QuestionID { get; set; }
-        public string Likelihood { get; set; }
+        public int Likelihood { get; set; }
         public int Response { get; set; }
     
         public virtual RiskAssessment RiskAssessment { get; set; }

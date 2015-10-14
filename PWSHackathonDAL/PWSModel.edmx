@@ -55,7 +55,7 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="RiskAssessmentID" Type="int" Nullable="false" />
     <Property Name="QuestionID" Type="int" Nullable="false" />
-    <Property Name="Likelihood" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Likelihood" Type="int" Nullable="false" />
     <Property Name="Response" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Questions">
@@ -175,7 +175,7 @@
           <Property Name="RiskAssessmentID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Question" Relationship="PWS_DatabaseModel.QuestionRiskAssessmentQuestion" FromRole="RiskAssessmentQuestion" ToRole="Question" />
           <Property Name="QuestionID" Type="Int32" Nullable="false" />
-          <Property Name="Likelihood" Type="String" Nullable="false" />
+          <Property Name="Likelihood" Type="Int32" Nullable="false" />
           <Property Name="Response" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Question">

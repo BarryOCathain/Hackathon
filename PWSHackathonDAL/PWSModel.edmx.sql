@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 10/14/2015 17:41:33
+-- Date Created: 10/14/2015 18:30:00
 -- Generated from EDMX file: C:\TortoiseGit\Hackathon\PWSHackathonDAL\PWSModel.edmx
 -- --------------------------------------------------
 
@@ -78,7 +78,7 @@ CREATE TABLE [dbo].[Risks] (
     [ID] int IDENTITY(1,1) NOT NULL,
     [RiskAssessmentID] int  NOT NULL,
     [QuestionID] int  NOT NULL,
-    [Likelihood] nvarchar(max)  NOT NULL,
+    [Likelihood] int  NOT NULL,
     [Response] int  NOT NULL
 );
 GO
