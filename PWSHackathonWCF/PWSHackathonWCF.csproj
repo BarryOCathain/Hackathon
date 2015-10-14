@@ -74,15 +74,17 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddressService.cs" />
-    <Compile Include="IRiskAssessmentService.cs" />
-    <Compile Include="MappingHelper.cs" />
+    <Compile Include="Data\Address.cs" />
+    <Compile Include="Services\AddressService.cs" />
+    <Compile Include="Data\RiskAssessment.cs" />
+    <Compile Include="Services\IRiskAssessmentService.cs" />
+    <Compile Include="Helpers\MappingHelper.cs" />
     <Compile Include="PWSService.svc.cs">
       <DependentUpon>PWSService.svc</DependentUpon>
     </Compile>
-    <Compile Include="IAddressService.cs" />
+    <Compile Include="Services\IAddressService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RiskAssessmentService.cs" />
+    <Compile Include="Services\RiskAssessmentService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
