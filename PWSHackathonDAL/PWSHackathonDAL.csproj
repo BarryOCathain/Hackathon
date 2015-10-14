@@ -79,6 +79,7 @@
     <Compile Include="RiskAssessment.cs">
       <DependentUpon>PWSModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="RiskQuestion.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="PWSModel.edmx">
