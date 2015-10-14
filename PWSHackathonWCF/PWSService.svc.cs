@@ -1,54 +1,74 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
+using PWSHackathonDAL;
 
 namespace PWSHackathonWCF
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
-    public class PWSService : IAddressService
+    public class PWSService : IAddressService, IRiskAssessmentService
     {
+        PWS_DatabaseEntities _db;
+        IAddressService _addressService;
+        RiskAssessmentService _riskAssessmentService;
+        
+        public PWSService()
+        {
+            _db = new PWS_DatabaseEntities();
+            _addressService = new AddressService(_db);
+            _riskAssessmentService = new RiskAssessmentService(_db);
+        }
+
         public Address CreateAddress(Address address)
         {
-            Address ret = new Address();
-
-
-            return ret;
+            return _addressService.CreateAddress(address);
         }
 
         public Address DeleteAddress(Address address)
         {
-            Address ret = new Address();
-
-
-            return ret;
+            return _addressService.DeleteAddress(address);
         }
 
         public Address GetAddress(string postcode)
         {
-            Address ret = new Address();
-
-            ret.PostCode = postcode;
-
-            return ret;
+            return _addressService.GetAddress(postcode);
         }
 
         public List<Address> GetAllAddresses()
         {
-            List<Address> ret = new List<Address>();
-
-            return ret;
+            return _addressService.GetAllAddresses();
         }
 
         public Address UpdateAddress(Address address)
         {
-            Address ret = new Address();
+            return _addressService.UpdateAddress(address);
+        }
 
-            return ret;
+
+        public RiskAssessment CreateRiskAssessment(RiskAssessment riskAssessment)
+        {
+            return _riskAssessmentService.CreateRiskAssessment(riskAssessment);
+        }
+
+        public RiskAssessment DeleteRiskAssessment(RiskAssessment riskAssessment)
+        {
+            return _riskAssessmentService.DeleteRiskAssessment(riskAssessment);
+        }
+
+        public List<RiskAssessment> GetAllRiskAssessments()
+        {
+            return _riskAssessmentService.GetAllRiskAssessments();
+        }
+
+        public RiskAssessment GetRiskAssessment(int riskAssessmentId)
+        {
+            return _riskAssessmentService.GetRiskAssessment(riskAssessmentId);
+        }
+
+        public RiskAssessment UpdateRiskAssessment(RiskAssessment updatedRiskAssessment)
+        {
+            return _riskAssessmentService.UpdateRiskAssessment(updatedRiskAssessment);
         }
     }
 }
