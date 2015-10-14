@@ -17,8 +17,16 @@ namespace PWSHackathonWCF
         {
             if (address != null)
             {
-                PWSHackathonDAL.Address dbAddress = new PWSHackathonDAL.Address();
+                var riskAssessment = _db.RiskAssessments
+                    //TODO .OrderByDescending(ra => ra.DateCreated)
+                    .FirstOrDefault(ra => ra.SupplyReference == address.RiskAssessmentSupplyRef);
 
+                if (riskAssessment == null) {
+                    return null;
+                }
+
+                PWSHackathonDAL.Address dbAddress = new PWSHackathonDAL.Address();
+                
                 dbAddress.Name = address.Name;
                 dbAddress.AddressLine1 = address.Line1;
                 dbAddress.AddressLine2 = address.Line2;
@@ -27,6 +35,7 @@ namespace PWSHackathonWCF
                 dbAddress.Postcode = address.PostCode;
                 dbAddress.Telephone = address.TelephoneNumber;
                 dbAddress.Email = address.EMail;
+                dbAddress.ID = riskAssessment.ID;
 
                 _db.Addresses.Add(dbAddress);
                 _db.SaveChanges();
@@ -108,11 +117,18 @@ namespace PWSHackathonWCF
             }
         }
 
-        public List<Address> GetAddressesByRiskAssessment(int riskAssessmentId)
+        public List<Address> GetAddressesByRiskAssessment(string riskAssessmentSupplyRef)
         {
             List<Address> ret = new List<Address>();
+            var riskAssessment = _db.RiskAssessments
+                //TODO .OrderByDescending(ra => ra.DateCreated)
+                .FirstOrDefault(ra => ra.SupplyReference == riskAssessmentSupplyRef);
+            if (riskAssessment == null) {
+                return ret;
+            }
+
             List<PWSHackathonDAL.Address> dalAddresses = _db.Addresses
-                .Where(a => a.RiskAssessmentID == riskAssessmentId)
+                .Where(a => a.RiskAssessmentID == riskAssessment.ID)
                 .ToList();
 
             foreach (PWSHackathonDAL.Address add in dalAddresses)

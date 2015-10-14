@@ -18,7 +18,7 @@ namespace PWSHackathonWCF
         string _post_code;
         string _telelphone;
         string _email;
-        int _riskAssessmentId;
+        string _riskAssessmentSupplyRef;
 
         [DataMember]
         public String Name
@@ -69,10 +69,10 @@ namespace PWSHackathonWCF
             set { _email = value; }
         }
         [DataMember]
-        public int RiskAssessmentId
+        public string RiskAssessmentSupplyRef
         {
-            get { return _riskAssessmentId; }
-            set { _riskAssessmentId = value; }
+            get { return _riskAssessmentSupplyRef; }
+            set { _riskAssessmentSupplyRef = value; }
         }
     }
 }
