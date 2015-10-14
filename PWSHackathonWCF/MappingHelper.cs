@@ -37,5 +37,51 @@ namespace PWSHackathonWCF
                 SupplyReference = riskAssessmentDAL.SupplyReference
             };
         }
+
+        public static PWSHackathonDAL.Address WCFAddressToDALAddress(Address address)
+        {
+            if (address != null)
+            {
+                PWSHackathonDAL.Address output = new PWSHackathonDAL.Address();
+
+                output.Name = address.Name;
+                output.AddressLine1 = address.Line1;
+                output.AddressLine2 = address.Line2;
+                output.AddressLine3 = address.Line3;
+                output.AddressLine4 = address.Line4;
+                output.Email = address.EMail;
+                output.Postcode = address.PostCode;
+                output.Telephone = address.TelephoneNumber;
+
+                return output;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public static Address DALAddressToWCFAddress(PWSHackathonDAL.Address address)
+        {
+            if (address != null)
+            {
+                Address output = new Address();
+
+                output.Name = address.Name;
+                output.Line1 = address.AddressLine1;
+                output.Line2 = address.AddressLine2;
+                output.Line3 = address.AddressLine3;
+                output.Line4 = address.AddressLine4;
+                output.PostCode = address.Postcode;
+                output.TelephoneNumber = address.Telephone;
+                output.EMail = address.Email;
+
+                return output;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }
