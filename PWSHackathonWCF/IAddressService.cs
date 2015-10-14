@@ -43,6 +43,7 @@ namespace PWSHackathonWCF
         string _post_code;
         string _telelphone;
         string _email;
+        int _riskAssessmentId;
 
         [DataMember]
         public String Name
@@ -91,6 +92,12 @@ namespace PWSHackathonWCF
         {
             get { return _email; }
             set { _email = value; }
+        }
+        [DataMember]
+        public int RiskAssessmentId
+        {
+            get { return _riskAssessmentId; }
+            set { _riskAssessmentId = value; }
         }
     }
 }
