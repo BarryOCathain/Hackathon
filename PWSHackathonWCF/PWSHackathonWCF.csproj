@@ -74,6 +74,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddressService.cs" />
     <Compile Include="IRiskAssessmentService.cs" />
     <Compile Include="MappingHelper.cs" />
     <Compile Include="PWSService.svc.cs">
