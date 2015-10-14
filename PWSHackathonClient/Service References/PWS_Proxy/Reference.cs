@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PWSHackathonClient.PWS_WebService {
+namespace PWSHackathonClient.PWS_Proxy {
     using System.Runtime.Serialization;
     using System;
     
@@ -171,47 +171,47 @@ namespace PWSHackathonClient.PWS_WebService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="PWS_WebService.IAddressService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="PWS_Proxy.IAddressService")]
     public interface IAddressService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/GetAddress", ReplyAction="http://tempuri.org/IAddressService/GetAddressResponse")]
-        PWSHackathonClient.PWS_WebService.Address GetAddress(string postcode);
+        PWSHackathonClient.PWS_Proxy.Address GetAddress(string postcode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/GetAddress", ReplyAction="http://tempuri.org/IAddressService/GetAddressResponse")]
-        System.Threading.Tasks.Task<PWSHackathonClient.PWS_WebService.Address> GetAddressAsync(string postcode);
+        System.Threading.Tasks.Task<PWSHackathonClient.PWS_Proxy.Address> GetAddressAsync(string postcode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/CreateAddress", ReplyAction="http://tempuri.org/IAddressService/CreateAddressResponse")]
-        PWSHackathonClient.PWS_WebService.Address CreateAddress(PWSHackathonClient.PWS_WebService.Address address);
+        PWSHackathonClient.PWS_Proxy.Address CreateAddress(PWSHackathonClient.PWS_Proxy.Address address);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/CreateAddress", ReplyAction="http://tempuri.org/IAddressService/CreateAddressResponse")]
-        System.Threading.Tasks.Task<PWSHackathonClient.PWS_WebService.Address> CreateAddressAsync(PWSHackathonClient.PWS_WebService.Address address);
+        System.Threading.Tasks.Task<PWSHackathonClient.PWS_Proxy.Address> CreateAddressAsync(PWSHackathonClient.PWS_Proxy.Address address);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/DeleteAddress", ReplyAction="http://tempuri.org/IAddressService/DeleteAddressResponse")]
-        PWSHackathonClient.PWS_WebService.Address DeleteAddress(PWSHackathonClient.PWS_WebService.Address address);
+        PWSHackathonClient.PWS_Proxy.Address DeleteAddress(PWSHackathonClient.PWS_Proxy.Address address);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/DeleteAddress", ReplyAction="http://tempuri.org/IAddressService/DeleteAddressResponse")]
-        System.Threading.Tasks.Task<PWSHackathonClient.PWS_WebService.Address> DeleteAddressAsync(PWSHackathonClient.PWS_WebService.Address address);
+        System.Threading.Tasks.Task<PWSHackathonClient.PWS_Proxy.Address> DeleteAddressAsync(PWSHackathonClient.PWS_Proxy.Address address);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/UpdateAddress", ReplyAction="http://tempuri.org/IAddressService/UpdateAddressResponse")]
-        PWSHackathonClient.PWS_WebService.Address UpdateAddress(PWSHackathonClient.PWS_WebService.Address address);
+        PWSHackathonClient.PWS_Proxy.Address UpdateAddress(PWSHackathonClient.PWS_Proxy.Address address);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/UpdateAddress", ReplyAction="http://tempuri.org/IAddressService/UpdateAddressResponse")]
-        System.Threading.Tasks.Task<PWSHackathonClient.PWS_WebService.Address> UpdateAddressAsync(PWSHackathonClient.PWS_WebService.Address address);
+        System.Threading.Tasks.Task<PWSHackathonClient.PWS_Proxy.Address> UpdateAddressAsync(PWSHackathonClient.PWS_Proxy.Address address);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/GetAllAddresses", ReplyAction="http://tempuri.org/IAddressService/GetAllAddressesResponse")]
-        PWSHackathonClient.PWS_WebService.Address[] GetAllAddresses();
+        PWSHackathonClient.PWS_Proxy.Address[] GetAllAddresses();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/GetAllAddresses", ReplyAction="http://tempuri.org/IAddressService/GetAllAddressesResponse")]
-        System.Threading.Tasks.Task<PWSHackathonClient.PWS_WebService.Address[]> GetAllAddressesAsync();
+        System.Threading.Tasks.Task<PWSHackathonClient.PWS_Proxy.Address[]> GetAllAddressesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IAddressServiceChannel : PWSHackathonClient.PWS_WebService.IAddressService, System.ServiceModel.IClientChannel {
+    public interface IAddressServiceChannel : PWSHackathonClient.PWS_Proxy.IAddressService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class AddressServiceClient : System.ServiceModel.ClientBase<PWSHackathonClient.PWS_WebService.IAddressService>, PWSHackathonClient.PWS_WebService.IAddressService {
+    public partial class AddressServiceClient : System.ServiceModel.ClientBase<PWSHackathonClient.PWS_Proxy.IAddressService>, PWSHackathonClient.PWS_Proxy.IAddressService {
         
         public AddressServiceClient() {
         }
@@ -232,43 +232,43 @@ namespace PWSHackathonClient.PWS_WebService {
                 base(binding, remoteAddress) {
         }
         
-        public PWSHackathonClient.PWS_WebService.Address GetAddress(string postcode) {
+        public PWSHackathonClient.PWS_Proxy.Address GetAddress(string postcode) {
             return base.Channel.GetAddress(postcode);
         }
         
-        public System.Threading.Tasks.Task<PWSHackathonClient.PWS_WebService.Address> GetAddressAsync(string postcode) {
+        public System.Threading.Tasks.Task<PWSHackathonClient.PWS_Proxy.Address> GetAddressAsync(string postcode) {
             return base.Channel.GetAddressAsync(postcode);
         }
         
-        public PWSHackathonClient.PWS_WebService.Address CreateAddress(PWSHackathonClient.PWS_WebService.Address address) {
+        public PWSHackathonClient.PWS_Proxy.Address CreateAddress(PWSHackathonClient.PWS_Proxy.Address address) {
             return base.Channel.CreateAddress(address);
         }
         
-        public System.Threading.Tasks.Task<PWSHackathonClient.PWS_WebService.Address> CreateAddressAsync(PWSHackathonClient.PWS_WebService.Address address) {
+        public System.Threading.Tasks.Task<PWSHackathonClient.PWS_Proxy.Address> CreateAddressAsync(PWSHackathonClient.PWS_Proxy.Address address) {
             return base.Channel.CreateAddressAsync(address);
         }
         
-        public PWSHackathonClient.PWS_WebService.Address DeleteAddress(PWSHackathonClient.PWS_WebService.Address address) {
+        public PWSHackathonClient.PWS_Proxy.Address DeleteAddress(PWSHackathonClient.PWS_Proxy.Address address) {
             return base.Channel.DeleteAddress(address);
         }
         
-        public System.Threading.Tasks.Task<PWSHackathonClient.PWS_WebService.Address> DeleteAddressAsync(PWSHackathonClient.PWS_WebService.Address address) {
+        public System.Threading.Tasks.Task<PWSHackathonClient.PWS_Proxy.Address> DeleteAddressAsync(PWSHackathonClient.PWS_Proxy.Address address) {
             return base.Channel.DeleteAddressAsync(address);
         }
         
-        public PWSHackathonClient.PWS_WebService.Address UpdateAddress(PWSHackathonClient.PWS_WebService.Address address) {
+        public PWSHackathonClient.PWS_Proxy.Address UpdateAddress(PWSHackathonClient.PWS_Proxy.Address address) {
             return base.Channel.UpdateAddress(address);
         }
         
-        public System.Threading.Tasks.Task<PWSHackathonClient.PWS_WebService.Address> UpdateAddressAsync(PWSHackathonClient.PWS_WebService.Address address) {
+        public System.Threading.Tasks.Task<PWSHackathonClient.PWS_Proxy.Address> UpdateAddressAsync(PWSHackathonClient.PWS_Proxy.Address address) {
             return base.Channel.UpdateAddressAsync(address);
         }
         
-        public PWSHackathonClient.PWS_WebService.Address[] GetAllAddresses() {
+        public PWSHackathonClient.PWS_Proxy.Address[] GetAllAddresses() {
             return base.Channel.GetAllAddresses();
         }
         
-        public System.Threading.Tasks.Task<PWSHackathonClient.PWS_WebService.Address[]> GetAllAddressesAsync() {
+        public System.Threading.Tasks.Task<PWSHackathonClient.PWS_Proxy.Address[]> GetAllAddressesAsync() {
             return base.Channel.GetAllAddressesAsync();
         }
     }

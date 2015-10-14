@@ -57,7 +57,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Service References\PWS_WebService\Reference.cs">
+    <Compile Include="Service References\PWS_Proxy\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -98,17 +98,17 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\PWS_WebService\PWSHackathonClient.PWS_WebService.Address.datasource">
+    <None Include="Service References\PWS_Proxy\PWSHackathonClient.PWS_Proxy.Address.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\PWS_WebService\PWSService.wsdl" />
-    <None Include="Service References\PWS_WebService\PWSService.xsd">
+    <None Include="Service References\PWS_Proxy\PWSService.wsdl" />
+    <None Include="Service References\PWS_Proxy\PWSService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PWS_WebService\PWSService1.xsd">
+    <None Include="Service References\PWS_Proxy\PWSService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PWS_WebService\PWSService2.xsd">
+    <None Include="Service References\PWS_Proxy\PWSService2.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -119,19 +119,19 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\PWS_WebService\" />
+    <WCFMetadataStorage Include="Service References\PWS_Proxy\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\PWS_WebService\PWSService.disco" />
+    <None Include="Service References\PWS_Proxy\PWSService.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\PWS_WebService\configuration91.svcinfo" />
+    <None Include="Service References\PWS_Proxy\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\PWS_WebService\configuration.svcinfo" />
+    <None Include="Service References\PWS_Proxy\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\PWS_WebService\Reference.svcmap">
+    <None Include="Service References\PWS_Proxy\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
