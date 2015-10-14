@@ -24,66 +24,17 @@ namespace PWSHackathonWCF
 
         public Address GetAddress(string postcode)
         {
-            PWSHackathonDAL.Address ret = _db.Addresses
-                .Where(a => a.Postcode == postcode)
-                .FirstOrDefault();
-
-            if (ret != null)
-            {
-                return DALAddressToWCFAddress(ret); 
-            }
-            else
-            {
-                return null;
-            }
+            return addressService.GetAddress(postcode);
         }
 
         public List<Address> GetAllAddresses()
         {
-            List<PWSHackathonDAL.Address> dalAdd = _db.Addresses.ToList();
-            List<Address> ret = new List<Address>();
-
-            foreach (PWSHackathonDAL.Address address in dalAdd)
-            {
-                ret.Add(DALAddressToWCFAddress(address));
-            }
-
-            if (ret != null)
-            {
-                return ret;
-            }
-            else
-            {
-                return null;
-            }
+            return addressService.GetAllAddresses();
         }
 
         public Address UpdateAddress(Address address)
         {
-            string wcfPostcode = address.PostCode;
-
-            PWSHackathonDAL.Address tempAddress = _db.Addresses
-                .Where(a => a.Postcode == wcfPostcode)
-                .FirstOrDefault();
-
-            if(tempAddress != null)
-            {
-                tempAddress.Name = address.Name;
-                tempAddress.AddressLine1 = address.Line1;
-                tempAddress.AddressLine2 = address.Line1;
-                tempAddress.AddressLine3 = address.Line3;
-                tempAddress.AddressLine4 = address.Line4;
-                tempAddress.Email = address.EMail;
-                tempAddress.Telephone = address.TelephoneNumber;
-
-                _db.SaveChanges();
-
-                return DALAddressToWCFAddress(tempAddress);
-            }
-            else
-            {
-                return null;
-            }
+            return addressService.UpdateAddress(address);
         }
 
 
@@ -122,14 +73,14 @@ namespace PWSHackathonWCF
 
         public RiskAssessment GetRiskAssessment(int riskAssessmentId)
         {
-            var riskAssessment = _db.RiskAssessments.FirstOrDefault(ra => ra.Id == riskAssessmentId);
+            var riskAssessment = _db.RiskAssessments.FirstOrDefault(ra => ra.ID == riskAssessmentId);
             _db.SaveChanges();
             return MappingHelper.RiskAssessmentDALToWCF(riskAssessment);
         }
 
         public RiskAssessment UpdateRiskAssessment(RiskAssessment updatedRiskAssessment)
         {
-            var riskAssessment = _db.RiskAssessments.FirstOrDefault(ra => ra.Id == updatedRiskAssessment.Id);
+            var riskAssessment = _db.RiskAssessments.FirstOrDefault(ra => ra.ID == updatedRiskAssessment.Id);
             riskAssessment.LocalAuthority = updatedRiskAssessment.LocalAuthority;
             riskAssessment.SupplyName = updatedRiskAssessment.SupplyName;
             riskAssessment.SupplyReference = updatedRiskAssessment.SupplyReference;

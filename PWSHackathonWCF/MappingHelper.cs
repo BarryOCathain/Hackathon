@@ -15,7 +15,7 @@ namespace PWSHackathonWCF
 
             return new PWSHackathonDAL.RiskAssessment
             {
-                Id = riskAssessmentWCF.Id,
+                ID = riskAssessmentWCF.Id,
                 LocalAuthority = riskAssessmentWCF.LocalAuthority,
                 SupplyName = riskAssessmentWCF.SupplyName,
                 SupplyReference = riskAssessmentWCF.SupplyReference
@@ -31,7 +31,7 @@ namespace PWSHackathonWCF
 
             return new RiskAssessment
             {
-                Id = riskAssessmentDAL.Id,
+                Id = riskAssessmentDAL.ID,
                 LocalAuthority = riskAssessmentDAL.LocalAuthority,
                 SupplyName = riskAssessmentDAL.SupplyName,
                 SupplyReference = riskAssessmentDAL.SupplyReference
