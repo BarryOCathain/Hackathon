@@ -8,7 +8,13 @@ namespace PWSHackathonWCF
 {
     public class AddressService : IAddressService
     {
-        PWS_DatabaseEntities _db = new PWS_DatabaseEntities();
+        PWS_DatabaseEntities _db;
+
+        public AddressService(PWS_DatabaseEntities db)
+        {
+            _db = db;
+        }
+
         public Address CreateAddress(Address address)
         {
             if (address != null)
