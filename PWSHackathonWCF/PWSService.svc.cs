@@ -1,7 +1,7 @@
-﻿using System;
+﻿using PWSHackathonDAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using PWSHackathonDAL;
 
 namespace PWSHackathonWCF
 {
@@ -61,9 +61,9 @@ namespace PWSHackathonWCF
             return _riskAssessmentService.GetAllRiskAssessments();
         }
 
-        public RiskAssessment GetRiskAssessment(int riskAssessmentId)
+        public RiskAssessment GetRiskAssessment(string supplyReference)
         {
-            return _riskAssessmentService.GetRiskAssessment(riskAssessmentId);
+            return _riskAssessmentService.GetRiskAssessment(supplyReference);
         }
 
         public RiskAssessment UpdateRiskAssessment(RiskAssessment updatedRiskAssessment)

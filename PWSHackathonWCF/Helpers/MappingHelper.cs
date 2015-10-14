@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace PWSHackathonWCF
+﻿namespace PWSHackathonWCF
 {
     public static class MappingHelper
     {
@@ -15,10 +10,10 @@ namespace PWSHackathonWCF
 
             return new PWSHackathonDAL.RiskAssessment
             {
-                ID = riskAssessmentWCF.Id,
                 LocalAuthority = riskAssessmentWCF.LocalAuthority,
                 SupplyName = riskAssessmentWCF.SupplyName,
-                SupplyReference = riskAssessmentWCF.SupplyReference
+                SupplyReference = riskAssessmentWCF.SupplyReference,
+                //TODO DateCreated = riskAssessmentWCF.DateCreated
             };
         }
 
@@ -31,10 +26,10 @@ namespace PWSHackathonWCF
 
             return new RiskAssessment
             {
-                Id = riskAssessmentDAL.ID,
                 LocalAuthority = riskAssessmentDAL.LocalAuthority,
                 SupplyName = riskAssessmentDAL.SupplyName,
-                SupplyReference = riskAssessmentDAL.SupplyReference
+                SupplyReference = riskAssessmentDAL.SupplyReference,
+                //TODO DateCreated = riskAssessmentDAL.DateCreated
             };
         }
 

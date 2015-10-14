@@ -1,8 +1,6 @@
 ﻿using PWSHackathonDAL;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace PWSHackathonWCF
 {
@@ -44,20 +42,20 @@ namespace PWSHackathonWCF
             {
                 result.Add(MappingHelper.RiskAssessmentDALToWCF(riskAssessment));
             }
-            _db.SaveChanges();
             return result;
         }
 
-        public RiskAssessment GetRiskAssessment(int riskAssessmentId)
+        public RiskAssessment GetRiskAssessment(string supplyReference)
         {
-            var riskAssessment = _db.RiskAssessments.FirstOrDefault(ra => ra.ID == riskAssessmentId);
-            _db.SaveChanges();
+            var riskAssessment = _db.RiskAssessments.FirstOrDefault(ra => ra.SupplyReference == supplyReference);
             return MappingHelper.RiskAssessmentDALToWCF(riskAssessment);
         }
 
         public RiskAssessment UpdateRiskAssessment(RiskAssessment updatedRiskAssessment)
         {
-            var riskAssessment = _db.RiskAssessments.FirstOrDefault(ra => ra.ID == updatedRiskAssessment.Id);
+            var riskAssessment = _db.RiskAssessments
+                //TODO .OrderByDescending(ra => ra.DateCreated)
+                .FirstOrDefault(ra => ra.SupplyReference == updatedRiskAssessment.SupplyReference);
             riskAssessment.LocalAuthority = updatedRiskAssessment.LocalAuthority;
             riskAssessment.SupplyName = updatedRiskAssessment.SupplyName;
             riskAssessment.SupplyReference = updatedRiskAssessment.SupplyReference;
