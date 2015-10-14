@@ -23,5 +23,8 @@ namespace PWSHackathonDAL
         public string Postcode { get; set; }
         public string Telephone { get; set; }
         public string Email { get; set; }
+        public int RiskAssessmentID { get; set; }
+    
+        public virtual RiskAssessment RiskAssessment { get; set; }
     }
 }

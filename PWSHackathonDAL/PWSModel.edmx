@@ -4,26 +4,52 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PWS_DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Addresses">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="Name" Type="nvarchar(max)" />
-          <Property Name="AddressLine1" Type="nvarchar(max)" />
-          <Property Name="AddressLine2" Type="nvarchar(max)" />
-          <Property Name="AddressLine3" Type="nvarchar(max)" />
-          <Property Name="AddressLine4" Type="nvarchar(max)" />
-          <Property Name="Postcode" Type="nvarchar(max)" />
-          <Property Name="Telephone" Type="nvarchar(max)" />
-          <Property Name="Email" Type="nvarchar(max)" />
-        </EntityType>
-        <EntityContainer Name="PWS_DatabaseModelStoreContainer">
-          <EntitySet Name="Addresses" EntityType="Self.Addresses" Schema="dbo" store:Type="Tables" />
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="PWS_DatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="PWS_DatabaseModelStoreContainer">
+    <EntitySet Name="Addresses" EntityType="PWS_DatabaseModel.Store.Addresses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RiskAssessments" EntityType="PWS_DatabaseModel.Store.RiskAssessments" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="RiskAssessmentAddress" Association="PWS_DatabaseModel.Store.RiskAssessmentAddress">
+      <End Role="RiskAssessment" EntitySet="RiskAssessments" />
+      <End Role="Address" EntitySet="Addresses" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Addresses">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="AddressLine1" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="AddressLine2" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="AddressLine3" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="AddressLine4" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Postcode" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Telephone" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="RiskAssessmentID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RiskAssessments">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="LocalAuthority" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SupplyReference" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SupplyName" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <Association Name="RiskAssessmentAddress">
+    <End Role="RiskAssessment" Type="PWS_DatabaseModel.Store.RiskAssessments" Multiplicity="1" />
+    <End Role="Address" Type="PWS_DatabaseModel.Store.Addresses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RiskAssessment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="RiskAssessmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PWS_DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -40,34 +66,73 @@
           <Property Name="Postcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Telephone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="RiskAssessment" Relationship="PWS_DatabaseModel.RiskAssessmentAddress" FromRole="Address" ToRole="RiskAssessment" />
+          <Property Name="RiskAssessmentID" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityContainer Name="PWS_DatabaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Addresses" EntityType="Self.Address" />
+          <EntitySet Name="RiskAssessments" EntityType="PWS_DatabaseModel.RiskAssessment" />
+          <AssociationSet Name="RiskAssessmentAddress" Association="PWS_DatabaseModel.RiskAssessmentAddress">
+            <End Role="RiskAssessment" EntitySet="RiskAssessments" />
+            <End Role="Address" EntitySet="Addresses" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="RiskAssessment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="LocalAuthority" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SupplyReference" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SupplyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Addresses" Relationship="PWS_DatabaseModel.RiskAssessmentAddress" FromRole="RiskAssessment" ToRole="Address" />
+        </EntityType>
+        <Association Name="RiskAssessmentAddress">
+          <End Type="PWS_DatabaseModel.RiskAssessment" Role="RiskAssessment" Multiplicity="1" />
+          <End Type="PWS_DatabaseModel.Address" Role="Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RiskAssessment">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="RiskAssessmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PWS_DatabaseModelStoreContainer" CdmEntityContainer="PWS_DatabaseEntities">
-          <EntitySetMapping Name="Addresses">
-            <EntityTypeMapping TypeName="PWS_DatabaseModel.Address">
-              <MappingFragment StoreEntitySet="Addresses">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
-                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
-                <ScalarProperty Name="AddressLine3" ColumnName="AddressLine3" />
-                <ScalarProperty Name="AddressLine4" ColumnName="AddressLine4" />
-                <ScalarProperty Name="Postcode" ColumnName="Postcode" />
-                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PWS_DatabaseModelStoreContainer" CdmEntityContainer="PWS_DatabaseEntities">
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="IsTypeOf(PWS_DatabaseModel.Address)">
+        <MappingFragment StoreEntitySet="Addresses">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+          <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+          <ScalarProperty Name="AddressLine3" ColumnName="AddressLine3" />
+          <ScalarProperty Name="AddressLine4" ColumnName="AddressLine4" />
+          <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="RiskAssessmentID" ColumnName="RiskAssessmentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RiskAssessments">
+      <EntityTypeMapping TypeName="IsTypeOf(PWS_DatabaseModel.RiskAssessment)">
+        <MappingFragment StoreEntitySet="RiskAssessments">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="LocalAuthority" ColumnName="LocalAuthority" />
+          <ScalarProperty Name="SupplyReference" ColumnName="SupplyReference" />
+          <ScalarProperty Name="SupplyName" ColumnName="SupplyName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -81,7 +146,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>

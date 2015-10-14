@@ -26,5 +26,6 @@ namespace PWSHackathonDAL
         }
     
         public virtual DbSet<Address> Addresses { get; set; }
+        public virtual DbSet<RiskAssessment> RiskAssessments { get; set; }
     }
 }

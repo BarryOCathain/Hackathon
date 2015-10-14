@@ -5,7 +5,9 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="669ecca045bb4a63bec984424750291e" Name="Diagram1">
-        <EntityTypeShape EntityType="PWS_DatabaseModel.Address" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PWS_DatabaseModel.Address" Width="2.5" PointX="3.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PWS_DatabaseModel.RiskAssessment" Width="1.5" PointX="0.5" PointY="0.5" />
+        <AssociationConnector Association="PWS_DatabaseModel.RiskAssessmentAddress" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

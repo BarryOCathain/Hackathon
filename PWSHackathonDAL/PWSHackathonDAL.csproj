@@ -70,6 +70,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PWSModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="RiskAssessment.cs">
+      <DependentUpon>PWSModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="PWSModel.edmx">
@@ -90,6 +93,7 @@
       <DependentUpon>PWSModel.edmx</DependentUpon>
       <LastGenOutput>PWSModel.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="PWSModel.edmx.sql" />
     <Content Include="PWSModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>PWSModel.edmx</DependentUpon>
