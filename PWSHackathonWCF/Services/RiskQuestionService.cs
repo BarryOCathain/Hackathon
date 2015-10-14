@@ -64,16 +64,6 @@ namespace PWSHackathonWCF
             return MappingHelper.DALRiskToWCFRiskQuestion(risk);    
         }
 
-        public List<RiskQuestion> GetAllRiskQuestions()
-        {
-            List<RiskQuestion> riskQuestions = new List<RiskQuestion>();
-            foreach (var question in _db.Questions)
-            {
-                riskQuestions.Add(MappingHelper.DALRiskToWCFRiskQuestion(question));
-            }
-            return riskQuestions;           
-        }
-
         public List<RiskQuestion> GetRiskQuestionsForRiskAssessment(string riskAssessmentSupplierRef)
         {
             var result = new List<RiskQuestion>();
