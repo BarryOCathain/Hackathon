@@ -21,36 +21,38 @@ namespace PWSHackathonClient
     /// </summary>
     public partial class StartPage : Page
     {
-        Mode mode = Mode.Update;
-
         public StartPage()
         {
             InitializeComponent();
-            mode = Mode.None;
             SetButtons();
+            if (App.Mode != Mode.None)
+            {
+                EnableTextBoxes();
+                supRefTxt.IsEnabled = false;
+                dteCreated.SelectedDate = App.RiskAssessment.DateCreated;
+            }
         }
 
         private void SetButtons()
         {
-            btnFind.IsEnabled = 
-                mode == Mode.None &&
+            btnFind.IsEnabled =
+                App.Mode == Mode.None &&
                 !string.IsNullOrEmpty(supRefTxt.Text) &&
                 string.IsNullOrEmpty(supNameTxt.Text) &&
                 string.IsNullOrEmpty(laTxt.Text) &&
                 !dteCreated.SelectedDate.HasValue;
 
-            btnSave.IsEnabled = 
-                mode != Mode.None && 
+            btnSave.IsEnabled =
+                App.Mode != Mode.None &&
                 !string.IsNullOrEmpty(supRefTxt.Text);
             btnSave.Visibility = btnSave.IsEnabled ? Visibility.Visible : Visibility.Hidden;
-            btnNew.IsEnabled = 
-                mode == Mode.None && 
+            btnNew.IsEnabled =
+                App.Mode == Mode.None &&
                 !btnSave.IsEnabled;
             btnNew.Visibility = btnNew.IsEnabled ? Visibility.Visible : Visibility.Hidden;
 
-            risksLink.IsEnabled = btnSave.IsEnabled;
-            addressesLink.IsEnabled = btnSave.IsEnabled;
-
+            risksLink.Visibility = btnSave.IsEnabled ? Visibility.Visible : Visibility.Hidden;
+            addressesLink.Visibility = btnSave.IsEnabled ? Visibility.Visible : Visibility.Hidden;
         }
 
         private void BlankForm()
@@ -71,7 +73,7 @@ namespace PWSHackathonClient
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            string resultMessage = "Risk Assessment creation failed. Please validate data and try again";
+            string resultMessage = "Action failed. Please validate data and try again";
             try
             {
                 var riskAssessment = new RiskAssessment
@@ -84,10 +86,22 @@ namespace PWSHackathonClient
 
                 using (var riskAssessmentClient = new RiskAssessmentServiceClient())
                 {
-                    var result = riskAssessmentClient.CreateRiskAssessment(riskAssessment);
+                    RiskAssessment result = null;
+                    switch (App.Mode)
+                    {
+                        case Mode.Create:
+                            result = riskAssessmentClient.CreateRiskAssessment(riskAssessment);
+                            break;
+                        case Mode.Update:
+                            result = riskAssessmentClient.UpdateRiskAssessment(riskAssessment);
+                            break;
+                        default:
+                            break;
+                    }
+                    
                     if (result != null)
                     {
-                        resultMessage = "Risk Assessment created";
+                        resultMessage = "Risk Assessment saved";
                         App.RiskAssessment = result;
                     }
                 }
@@ -120,7 +134,7 @@ namespace PWSHackathonClient
                     dteCreated.SelectedDate = result.DateCreated;
                     EnableTextBoxes();
                     supRefTxt.IsEnabled = false;
-                    mode = Mode.Update;
+                    App.Mode = Mode.Update;
                     SetButtons();
                 }
 
@@ -134,10 +148,10 @@ namespace PWSHackathonClient
 
             }
         }
-        
+
         private void btnNew_click(object sender, RoutedEventArgs e)
         {
-            mode = Mode.Create;
+            App.Mode = Mode.Create;
             EnableTextBoxes();
             BlankForm();
             SetButtons();

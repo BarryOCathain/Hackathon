@@ -18,7 +18,7 @@ namespace PWSHackathonWCF
             if (address != null)
             {
                 var riskAssessment = _db.RiskAssessments
-                    .OrderByDescending(ra => ra.DateCreated)
+                    .OrderByDescending(ra => ra.ID)
                     .FirstOrDefault(ra => ra.SupplyReference == address.RiskAssessmentSupplyRef);
 
                 if (riskAssessment == null) {
@@ -113,7 +113,7 @@ namespace PWSHackathonWCF
         {
             List<Address> ret = new List<Address>();
             var riskAssessment = _db.RiskAssessments
-                .OrderByDescending(ra => ra.DateCreated)
+                .OrderByDescending(ra => ra.ID)
                 .FirstOrDefault(ra => ra.SupplyReference == riskAssessmentSupplyRef);
             if (riskAssessment == null) {
                 return ret;

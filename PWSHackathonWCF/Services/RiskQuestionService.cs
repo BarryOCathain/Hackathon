@@ -17,7 +17,7 @@ namespace PWSHackathonWCF
         public List<RiskQuestion> CreateBlankRisks(string riskAssessmentSupplyReference) {
             var result = new List<RiskQuestion>();
             var riskAssessment = _db.RiskAssessments
-                  .OrderByDescending(ra => ra.DateCreated)
+                  .OrderByDescending(ra => ra.ID)
                   .FirstOrDefault(ra => ra.SupplyReference == riskAssessmentSupplyReference);
 
             if (riskAssessment == null)
@@ -45,7 +45,7 @@ namespace PWSHackathonWCF
                 return null;
             }
             var riskAssessment = _db.RiskAssessments
-                  .OrderByDescending(ra => ra.DateCreated)
+                  .OrderByDescending(ra => ra.ID)
                   .FirstOrDefault(ra => ra.SupplyReference == riskQuestion.RiskAssessmentSupplyReference);
 
             if (riskAssessment == null) {
@@ -67,7 +67,7 @@ namespace PWSHackathonWCF
         {
             var result = new List<RiskQuestion>();
             var riskAssessment = _db.RiskAssessments
-                   .OrderByDescending(ra => ra.DateCreated)
+                   .OrderByDescending(ra => ra.ID)
                    .FirstOrDefault(ra => ra.SupplyReference == riskAssessmentSupplierRef);
 
             if (riskAssessment == null)

@@ -42,10 +42,10 @@
         </Grid>
         <!--wpftk: Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" Name="dteCreated" SelectedDate="{Binding Path=Deadline}" Grid.ColumnSpan="2" Height="24" Margin="32,0,0,0" /-->
         <!--Frame Source="PageWithHyperlinks.xaml" Name="MyFrame" BorderBrush="SteelBlue" BorderThickness="2" /-->
-        <TextBlock Name="addressesLink" Margin="8,100,150,-80" Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" Height="16" IsEnabled="False">
+        <TextBlock Name="addressesLink" Margin="8,100,150,-80" Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" Height="16">
             <Hyperlink NavigateUri="AddressPage.xaml" Click="Hyperlink_Click">Addresses</Hyperlink>
         </TextBlock>
-        <TextBlock Name="risksLink" Margin="124,100,0,-80" Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" HorizontalAlignment="Left" Width="121" Height="16" IsEnabled="False">
+        <TextBlock Name="risksLink" Margin="124,100,0,-80" Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" HorizontalAlignment="Left" Width="121" Height="16">
            <Hyperlink NavigateUri="RiskPage.xaml" Click="Hyperlink_Click_1">Risk Assessment</Hyperlink>
         </TextBlock>
     </Grid>

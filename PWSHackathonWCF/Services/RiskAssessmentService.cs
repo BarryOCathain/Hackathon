@@ -47,14 +47,16 @@ namespace PWSHackathonWCF
 
         public RiskAssessment GetRiskAssessment(string supplyReference)
         {
-            var riskAssessment = _db.RiskAssessments.FirstOrDefault(ra => ra.SupplyReference == supplyReference);
+            var riskAssessment = _db.RiskAssessments
+                .OrderByDescending(ra=>ra.ID)
+                .FirstOrDefault(ra => ra.SupplyReference == supplyReference);
             return MappingHelper.RiskAssessmentDALToWCF(riskAssessment);
         }
 
         public RiskAssessment UpdateRiskAssessment(RiskAssessment updatedRiskAssessment)
         {
             var riskAssessment = _db.RiskAssessments
-                .OrderByDescending(ra => ra.DateCreated)
+                .OrderByDescending(ra => ra.ID)
                 .FirstOrDefault(ra => ra.SupplyReference == updatedRiskAssessment.SupplyReference);
             riskAssessment.LocalAuthority = updatedRiskAssessment.LocalAuthority;
             riskAssessment.SupplyName = updatedRiskAssessment.SupplyName;
