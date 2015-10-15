@@ -81,13 +81,13 @@
     <Compile Include="RiskPage.xaml.cs">
       <DependentUpon>RiskPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StartPage.xaml.cs">
-      <DependentUpon>StartPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\PWS_Service\Reference.cs">
+    <Compile Include="Service References\PSW_Service\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="StartPage.xaml.cs">
+      <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>
     <Page Include="AddressPage.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -134,31 +134,36 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\PWS_Service\PWSHackathonClient.PWS_Service.Address.datasource">
+    <None Include="Service References\PSW_Service\PWSHackathonClient.PSW_Service.Address.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\PWS_Service\PWSHackathonClient.PWS_Service.RiskAssessment.datasource">
+    <None Include="Service References\PSW_Service\PWSHackathonClient.PSW_Service.RiskAssessment.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\PWS_Service\PWSService.wsdl" />
+    <None Include="Service References\PSW_Service\PWSHackathonClient.PSW_Service.RiskQuestion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PSW_Service\PWSService.wsdl" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\PWS_Service\" />
+    <WCFMetadataStorage Include="Service References\PSW_Service\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\PWS_Service\configuration91.svcinfo" />
+    <None Include="Service References\PSW_Service\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\PWS_Service\configuration.svcinfo" />
+    <None Include="Service References\PSW_Service\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\PWS_Service\Reference.svcmap">
+    <None Include="Service References\PSW_Service\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

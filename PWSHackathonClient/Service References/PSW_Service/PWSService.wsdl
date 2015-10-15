@@ -139,6 +139,48 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="CreateBlankRisks">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="riskAssessmentSupplyReference" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateBlankRisksResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/PWSHackathonWCF" minOccurs="0" name="CreateBlankRisksResult" nillable="true" type="q17:ArrayOfRiskQuestion" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateRiskQuestion">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/PWSHackathonWCF" minOccurs="0" name="riskQuestion" nillable="true" type="q18:RiskQuestion" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateRiskQuestionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/PWSHackathonWCF" minOccurs="0" name="UpdateRiskQuestionResult" nillable="true" type="q19:RiskQuestion" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetRiskQuestionsForRiskAssessment">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="riskAssessmentSupplierRefId" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetRiskQuestionsForRiskAssessmentResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/PWSHackathonWCF" minOccurs="0" name="GetRiskQuestionsForRiskAssessmentResult" nillable="true" type="q20:ArrayOfRiskQuestion" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
     </xs:schema>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:element name="anyType" nillable="true" type="xs:anyType" />
@@ -191,7 +233,7 @@
           <xs:element minOccurs="0" name="Line4" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="PostCode" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="RiskAssessmentId" type="xs:int" />
+          <xs:element minOccurs="0" name="RiskAssessmentSupplyRef" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="TelephoneNumber" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
@@ -204,7 +246,7 @@
       <xs:element name="ArrayOfAddress" nillable="true" type="tns:ArrayOfAddress" />
       <xs:complexType name="RiskAssessment">
         <xs:sequence>
-          <xs:element minOccurs="0" name="DateCreated" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DateCreated" type="xs:dateTime" />
           <xs:element minOccurs="0" name="LocalAuthority" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="SupplyName" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="SupplyReference" nillable="true" type="xs:string" />
@@ -217,6 +259,24 @@
         </xs:sequence>
       </xs:complexType>
       <xs:element name="ArrayOfRiskAssessment" nillable="true" type="tns:ArrayOfRiskAssessment" />
+      <xs:complexType name="ArrayOfRiskQuestion">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="RiskQuestion" nillable="true" type="tns:RiskQuestion" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfRiskQuestion" nillable="true" type="tns:ArrayOfRiskQuestion" />
+      <xs:complexType name="RiskQuestion">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsHazard" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Likelihood" type="xs:int" />
+          <xs:element minOccurs="0" name="Response" type="xs:int" />
+          <xs:element minOccurs="0" name="RiskAssessmentSupplyReference" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RiskNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Severity" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="RiskQuestion" nillable="true" type="tns:RiskQuestion" />
     </xs:schema>
   </wsdl:types>
   <wsdl:message name="IAddressService_GetAddress_InputMessage">
@@ -279,6 +339,24 @@
   <wsdl:message name="IRiskAssessmentService_GetAllRiskAssessments_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllRiskAssessmentsResponse" />
   </wsdl:message>
+  <wsdl:message name="IRiskQuestionService_CreateBlankRisks_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateBlankRisks" />
+  </wsdl:message>
+  <wsdl:message name="IRiskQuestionService_CreateBlankRisks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateBlankRisksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRiskQuestionService_UpdateRiskQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRiskQuestion" />
+  </wsdl:message>
+  <wsdl:message name="IRiskQuestionService_UpdateRiskQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRiskQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRiskQuestionService_GetRiskQuestionsForRiskAssessment_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRiskQuestionsForRiskAssessment" />
+  </wsdl:message>
+  <wsdl:message name="IRiskQuestionService_GetRiskQuestionsForRiskAssessment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRiskQuestionsForRiskAssessmentResponse" />
+  </wsdl:message>
   <wsdl:portType name="IAddressService">
     <wsdl:operation name="GetAddress">
       <wsdl:input wsaw:Action="http://tempuri.org/IAddressService/GetAddress" message="tns:IAddressService_GetAddress_InputMessage" />
@@ -321,6 +399,20 @@
     <wsdl:operation name="GetAllRiskAssessments">
       <wsdl:input wsaw:Action="http://tempuri.org/IRiskAssessmentService/GetAllRiskAssessments" message="tns:IRiskAssessmentService_GetAllRiskAssessments_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRiskAssessmentService/GetAllRiskAssessmentsResponse" message="tns:IRiskAssessmentService_GetAllRiskAssessments_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IRiskQuestionService">
+    <wsdl:operation name="CreateBlankRisks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRiskQuestionService/CreateBlankRisks" message="tns:IRiskQuestionService_CreateBlankRisks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRiskQuestionService/CreateBlankRisksResponse" message="tns:IRiskQuestionService_CreateBlankRisks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRiskQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRiskQuestionService/UpdateRiskQuestion" message="tns:IRiskQuestionService_UpdateRiskQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRiskQuestionService/UpdateRiskQuestionResponse" message="tns:IRiskQuestionService_UpdateRiskQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRiskQuestionsForRiskAssessment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRiskQuestionService/GetRiskQuestionsForRiskAssessment" message="tns:IRiskQuestionService_GetRiskQuestionsForRiskAssessment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRiskQuestionService/GetRiskQuestionsForRiskAssessmentResponse" message="tns:IRiskQuestionService_GetRiskQuestionsForRiskAssessment_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAddressService" type="tns:IAddressService">
@@ -419,11 +511,44 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IRiskQuestionService" type="tns:IRiskQuestionService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateBlankRisks">
+      <soap:operation soapAction="http://tempuri.org/IRiskQuestionService/CreateBlankRisks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRiskQuestion">
+      <soap:operation soapAction="http://tempuri.org/IRiskQuestionService/UpdateRiskQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRiskQuestionsForRiskAssessment">
+      <soap:operation soapAction="http://tempuri.org/IRiskQuestionService/GetRiskQuestionsForRiskAssessment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="PWSService">
     <wsdl:port name="BasicHttpBinding_IAddressService" binding="tns:BasicHttpBinding_IAddressService">
       <soap:address location="http://localhost:64972/PWSService.svc" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IRiskAssessmentService" binding="tns:BasicHttpBinding_IRiskAssessmentService">
+      <soap:address location="http://localhost:64972/PWSService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IRiskQuestionService" binding="tns:BasicHttpBinding_IRiskQuestionService">
       <soap:address location="http://localhost:64972/PWSService.svc" />
     </wsdl:port>
   </wsdl:service>

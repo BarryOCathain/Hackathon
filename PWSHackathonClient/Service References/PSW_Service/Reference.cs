@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PWSHackathonClient.PWS_Service {
+namespace PWSHackathonClient.PSW_Service {
     using System.Runtime.Serialization;
     using System;
     
@@ -44,7 +44,7 @@ namespace PWSHackathonClient.PWS_Service {
         private string PostCodeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int RiskAssessmentIdField;
+        private string RiskAssessmentSupplyRefField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TelephoneNumberField;
@@ -151,14 +151,14 @@ namespace PWSHackathonClient.PWS_Service {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int RiskAssessmentId {
+        public string RiskAssessmentSupplyRef {
             get {
-                return this.RiskAssessmentIdField;
+                return this.RiskAssessmentSupplyRefField;
             }
             set {
-                if ((this.RiskAssessmentIdField.Equals(value) != true)) {
-                    this.RiskAssessmentIdField = value;
-                    this.RaisePropertyChanged("RiskAssessmentId");
+                if ((object.ReferenceEquals(this.RiskAssessmentSupplyRefField, value) != true)) {
+                    this.RiskAssessmentSupplyRefField = value;
+                    this.RaisePropertyChanged("RiskAssessmentSupplyRef");
                 }
             }
         }
@@ -196,7 +196,7 @@ namespace PWSHackathonClient.PWS_Service {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DateCreatedField;
+        private System.DateTime DateCreatedField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LocalAuthorityField;
@@ -218,12 +218,12 @@ namespace PWSHackathonClient.PWS_Service {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DateCreated {
+        public System.DateTime DateCreated {
             get {
                 return this.DateCreatedField;
             }
             set {
-                if ((object.ReferenceEquals(this.DateCreatedField, value) != true)) {
+                if ((this.DateCreatedField.Equals(value) != true)) {
                     this.DateCreatedField = value;
                     this.RaisePropertyChanged("DateCreated");
                 }
@@ -279,48 +279,189 @@ namespace PWSHackathonClient.PWS_Service {
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="PWS_Service.IAddressService")]
-    public interface IAddressService {
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RiskQuestion", Namespace="http://schemas.datacontract.org/2004/07/PWSHackathonWCF")]
+    [System.SerializableAttribute()]
+    public partial class RiskQuestion : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/GetAddress", ReplyAction="http://tempuri.org/IAddressService/GetAddressResponse")]
-        PWSHackathonClient.PWS_Service.Address GetAddress(string postcode);
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/GetAddress", ReplyAction="http://tempuri.org/IAddressService/GetAddressResponse")]
-        System.Threading.Tasks.Task<PWSHackathonClient.PWS_Service.Address> GetAddressAsync(string postcode);
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/CreateAddress", ReplyAction="http://tempuri.org/IAddressService/CreateAddressResponse")]
-        PWSHackathonClient.PWS_Service.Address CreateAddress(PWSHackathonClient.PWS_Service.Address address);
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsHazardField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/CreateAddress", ReplyAction="http://tempuri.org/IAddressService/CreateAddressResponse")]
-        System.Threading.Tasks.Task<PWSHackathonClient.PWS_Service.Address> CreateAddressAsync(PWSHackathonClient.PWS_Service.Address address);
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int LikelihoodField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/DeleteAddress", ReplyAction="http://tempuri.org/IAddressService/DeleteAddressResponse")]
-        PWSHackathonClient.PWS_Service.Address DeleteAddress(PWSHackathonClient.PWS_Service.Address address);
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ResponseField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/DeleteAddress", ReplyAction="http://tempuri.org/IAddressService/DeleteAddressResponse")]
-        System.Threading.Tasks.Task<PWSHackathonClient.PWS_Service.Address> DeleteAddressAsync(PWSHackathonClient.PWS_Service.Address address);
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RiskAssessmentSupplyReferenceField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/UpdateAddress", ReplyAction="http://tempuri.org/IAddressService/UpdateAddressResponse")]
-        PWSHackathonClient.PWS_Service.Address UpdateAddress(PWSHackathonClient.PWS_Service.Address address);
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RiskNumberField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/UpdateAddress", ReplyAction="http://tempuri.org/IAddressService/UpdateAddressResponse")]
-        System.Threading.Tasks.Task<PWSHackathonClient.PWS_Service.Address> UpdateAddressAsync(PWSHackathonClient.PWS_Service.Address address);
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int SeverityField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/GetAllAddresses", ReplyAction="http://tempuri.org/IAddressService/GetAllAddressesResponse")]
-        PWSHackathonClient.PWS_Service.Address[] GetAllAddresses();
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/GetAllAddresses", ReplyAction="http://tempuri.org/IAddressService/GetAllAddressesResponse")]
-        System.Threading.Tasks.Task<PWSHackathonClient.PWS_Service.Address[]> GetAllAddressesAsync();
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsHazard {
+            get {
+                return this.IsHazardField;
+            }
+            set {
+                if ((this.IsHazardField.Equals(value) != true)) {
+                    this.IsHazardField = value;
+                    this.RaisePropertyChanged("IsHazard");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Likelihood {
+            get {
+                return this.LikelihoodField;
+            }
+            set {
+                if ((this.LikelihoodField.Equals(value) != true)) {
+                    this.LikelihoodField = value;
+                    this.RaisePropertyChanged("Likelihood");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Response {
+            get {
+                return this.ResponseField;
+            }
+            set {
+                if ((this.ResponseField.Equals(value) != true)) {
+                    this.ResponseField = value;
+                    this.RaisePropertyChanged("Response");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RiskAssessmentSupplyReference {
+            get {
+                return this.RiskAssessmentSupplyReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RiskAssessmentSupplyReferenceField, value) != true)) {
+                    this.RiskAssessmentSupplyReferenceField = value;
+                    this.RaisePropertyChanged("RiskAssessmentSupplyReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RiskNumber {
+            get {
+                return this.RiskNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RiskNumberField, value) != true)) {
+                    this.RiskNumberField = value;
+                    this.RaisePropertyChanged("RiskNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Severity {
+            get {
+                return this.SeverityField;
+            }
+            set {
+                if ((this.SeverityField.Equals(value) != true)) {
+                    this.SeverityField = value;
+                    this.RaisePropertyChanged("Severity");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IAddressServiceChannel : PWSHackathonClient.PWS_Service.IAddressService, System.ServiceModel.IClientChannel {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="PSW_Service.IAddressService")]
+    public interface IAddressService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/GetAddress", ReplyAction="http://tempuri.org/IAddressService/GetAddressResponse")]
+        PWSHackathonClient.PSW_Service.Address GetAddress(string postcode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/GetAddress", ReplyAction="http://tempuri.org/IAddressService/GetAddressResponse")]
+        System.Threading.Tasks.Task<PWSHackathonClient.PSW_Service.Address> GetAddressAsync(string postcode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/CreateAddress", ReplyAction="http://tempuri.org/IAddressService/CreateAddressResponse")]
+        PWSHackathonClient.PSW_Service.Address CreateAddress(PWSHackathonClient.PSW_Service.Address address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/CreateAddress", ReplyAction="http://tempuri.org/IAddressService/CreateAddressResponse")]
+        System.Threading.Tasks.Task<PWSHackathonClient.PSW_Service.Address> CreateAddressAsync(PWSHackathonClient.PSW_Service.Address address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/DeleteAddress", ReplyAction="http://tempuri.org/IAddressService/DeleteAddressResponse")]
+        PWSHackathonClient.PSW_Service.Address DeleteAddress(PWSHackathonClient.PSW_Service.Address address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/DeleteAddress", ReplyAction="http://tempuri.org/IAddressService/DeleteAddressResponse")]
+        System.Threading.Tasks.Task<PWSHackathonClient.PSW_Service.Address> DeleteAddressAsync(PWSHackathonClient.PSW_Service.Address address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/UpdateAddress", ReplyAction="http://tempuri.org/IAddressService/UpdateAddressResponse")]
+        PWSHackathonClient.PSW_Service.Address UpdateAddress(PWSHackathonClient.PSW_Service.Address address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/UpdateAddress", ReplyAction="http://tempuri.org/IAddressService/UpdateAddressResponse")]
+        System.Threading.Tasks.Task<PWSHackathonClient.PSW_Service.Address> UpdateAddressAsync(PWSHackathonClient.PSW_Service.Address address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/GetAllAddresses", ReplyAction="http://tempuri.org/IAddressService/GetAllAddressesResponse")]
+        PWSHackathonClient.PSW_Service.Address[] GetAllAddresses();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/GetAllAddresses", ReplyAction="http://tempuri.org/IAddressService/GetAllAddressesResponse")]
+        System.Threading.Tasks.Task<PWSHackathonClient.PSW_Service.Address[]> GetAllAddressesAsync();
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IAddressServiceChannel : PWSHackathonClient.PSW_Service.IAddressService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class AddressServiceClient : System.ServiceModel.ClientBase<PWSHackathonClient.PWS_Service.IAddressService>, PWSHackathonClient.PWS_Service.IAddressService {
+    public partial class AddressServiceClient : System.ServiceModel.ClientBase<PWSHackathonClient.PSW_Service.IAddressService>, PWSHackathonClient.PSW_Service.IAddressService {
         
         public AddressServiceClient() {
         }
@@ -341,89 +482,89 @@ namespace PWSHackathonClient.PWS_Service {
                 base(binding, remoteAddress) {
         }
         
-        public PWSHackathonClient.PWS_Service.Address GetAddress(string postcode) {
+        public PWSHackathonClient.PSW_Service.Address GetAddress(string postcode) {
             return base.Channel.GetAddress(postcode);
         }
         
-        public System.Threading.Tasks.Task<PWSHackathonClient.PWS_Service.Address> GetAddressAsync(string postcode) {
+        public System.Threading.Tasks.Task<PWSHackathonClient.PSW_Service.Address> GetAddressAsync(string postcode) {
             return base.Channel.GetAddressAsync(postcode);
         }
         
-        public PWSHackathonClient.PWS_Service.Address CreateAddress(PWSHackathonClient.PWS_Service.Address address) {
+        public PWSHackathonClient.PSW_Service.Address CreateAddress(PWSHackathonClient.PSW_Service.Address address) {
             return base.Channel.CreateAddress(address);
         }
         
-        public System.Threading.Tasks.Task<PWSHackathonClient.PWS_Service.Address> CreateAddressAsync(PWSHackathonClient.PWS_Service.Address address) {
+        public System.Threading.Tasks.Task<PWSHackathonClient.PSW_Service.Address> CreateAddressAsync(PWSHackathonClient.PSW_Service.Address address) {
             return base.Channel.CreateAddressAsync(address);
         }
         
-        public PWSHackathonClient.PWS_Service.Address DeleteAddress(PWSHackathonClient.PWS_Service.Address address) {
+        public PWSHackathonClient.PSW_Service.Address DeleteAddress(PWSHackathonClient.PSW_Service.Address address) {
             return base.Channel.DeleteAddress(address);
         }
         
-        public System.Threading.Tasks.Task<PWSHackathonClient.PWS_Service.Address> DeleteAddressAsync(PWSHackathonClient.PWS_Service.Address address) {
+        public System.Threading.Tasks.Task<PWSHackathonClient.PSW_Service.Address> DeleteAddressAsync(PWSHackathonClient.PSW_Service.Address address) {
             return base.Channel.DeleteAddressAsync(address);
         }
         
-        public PWSHackathonClient.PWS_Service.Address UpdateAddress(PWSHackathonClient.PWS_Service.Address address) {
+        public PWSHackathonClient.PSW_Service.Address UpdateAddress(PWSHackathonClient.PSW_Service.Address address) {
             return base.Channel.UpdateAddress(address);
         }
         
-        public System.Threading.Tasks.Task<PWSHackathonClient.PWS_Service.Address> UpdateAddressAsync(PWSHackathonClient.PWS_Service.Address address) {
+        public System.Threading.Tasks.Task<PWSHackathonClient.PSW_Service.Address> UpdateAddressAsync(PWSHackathonClient.PSW_Service.Address address) {
             return base.Channel.UpdateAddressAsync(address);
         }
         
-        public PWSHackathonClient.PWS_Service.Address[] GetAllAddresses() {
+        public PWSHackathonClient.PSW_Service.Address[] GetAllAddresses() {
             return base.Channel.GetAllAddresses();
         }
         
-        public System.Threading.Tasks.Task<PWSHackathonClient.PWS_Service.Address[]> GetAllAddressesAsync() {
+        public System.Threading.Tasks.Task<PWSHackathonClient.PSW_Service.Address[]> GetAllAddressesAsync() {
             return base.Channel.GetAllAddressesAsync();
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="PWS_Service.IRiskAssessmentService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="PSW_Service.IRiskAssessmentService")]
     public interface IRiskAssessmentService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskAssessmentService/GetRiskAssessment", ReplyAction="http://tempuri.org/IRiskAssessmentService/GetRiskAssessmentResponse")]
-        PWSHackathonClient.PWS_Service.RiskAssessment GetRiskAssessment(string supplyReference);
+        PWSHackathonClient.PSW_Service.RiskAssessment GetRiskAssessment(string supplyReference);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskAssessmentService/GetRiskAssessment", ReplyAction="http://tempuri.org/IRiskAssessmentService/GetRiskAssessmentResponse")]
-        System.Threading.Tasks.Task<PWSHackathonClient.PWS_Service.RiskAssessment> GetRiskAssessmentAsync(string supplyReference);
+        System.Threading.Tasks.Task<PWSHackathonClient.PSW_Service.RiskAssessment> GetRiskAssessmentAsync(string supplyReference);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskAssessmentService/CreateRiskAssessment", ReplyAction="http://tempuri.org/IRiskAssessmentService/CreateRiskAssessmentResponse")]
-        PWSHackathonClient.PWS_Service.RiskAssessment CreateRiskAssessment(PWSHackathonClient.PWS_Service.RiskAssessment riskAssessment);
+        PWSHackathonClient.PSW_Service.RiskAssessment CreateRiskAssessment(PWSHackathonClient.PSW_Service.RiskAssessment riskAssessment);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskAssessmentService/CreateRiskAssessment", ReplyAction="http://tempuri.org/IRiskAssessmentService/CreateRiskAssessmentResponse")]
-        System.Threading.Tasks.Task<PWSHackathonClient.PWS_Service.RiskAssessment> CreateRiskAssessmentAsync(PWSHackathonClient.PWS_Service.RiskAssessment riskAssessment);
+        System.Threading.Tasks.Task<PWSHackathonClient.PSW_Service.RiskAssessment> CreateRiskAssessmentAsync(PWSHackathonClient.PSW_Service.RiskAssessment riskAssessment);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskAssessmentService/DeleteRiskAssessment", ReplyAction="http://tempuri.org/IRiskAssessmentService/DeleteRiskAssessmentResponse")]
-        PWSHackathonClient.PWS_Service.RiskAssessment DeleteRiskAssessment(PWSHackathonClient.PWS_Service.RiskAssessment riskAssessment);
+        PWSHackathonClient.PSW_Service.RiskAssessment DeleteRiskAssessment(PWSHackathonClient.PSW_Service.RiskAssessment riskAssessment);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskAssessmentService/DeleteRiskAssessment", ReplyAction="http://tempuri.org/IRiskAssessmentService/DeleteRiskAssessmentResponse")]
-        System.Threading.Tasks.Task<PWSHackathonClient.PWS_Service.RiskAssessment> DeleteRiskAssessmentAsync(PWSHackathonClient.PWS_Service.RiskAssessment riskAssessment);
+        System.Threading.Tasks.Task<PWSHackathonClient.PSW_Service.RiskAssessment> DeleteRiskAssessmentAsync(PWSHackathonClient.PSW_Service.RiskAssessment riskAssessment);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskAssessmentService/UpdateRiskAssessment", ReplyAction="http://tempuri.org/IRiskAssessmentService/UpdateRiskAssessmentResponse")]
-        PWSHackathonClient.PWS_Service.RiskAssessment UpdateRiskAssessment(PWSHackathonClient.PWS_Service.RiskAssessment riskAssessment);
+        PWSHackathonClient.PSW_Service.RiskAssessment UpdateRiskAssessment(PWSHackathonClient.PSW_Service.RiskAssessment riskAssessment);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskAssessmentService/UpdateRiskAssessment", ReplyAction="http://tempuri.org/IRiskAssessmentService/UpdateRiskAssessmentResponse")]
-        System.Threading.Tasks.Task<PWSHackathonClient.PWS_Service.RiskAssessment> UpdateRiskAssessmentAsync(PWSHackathonClient.PWS_Service.RiskAssessment riskAssessment);
+        System.Threading.Tasks.Task<PWSHackathonClient.PSW_Service.RiskAssessment> UpdateRiskAssessmentAsync(PWSHackathonClient.PSW_Service.RiskAssessment riskAssessment);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskAssessmentService/GetAllRiskAssessments", ReplyAction="http://tempuri.org/IRiskAssessmentService/GetAllRiskAssessmentsResponse")]
-        PWSHackathonClient.PWS_Service.RiskAssessment[] GetAllRiskAssessments();
+        PWSHackathonClient.PSW_Service.RiskAssessment[] GetAllRiskAssessments();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskAssessmentService/GetAllRiskAssessments", ReplyAction="http://tempuri.org/IRiskAssessmentService/GetAllRiskAssessmentsResponse")]
-        System.Threading.Tasks.Task<PWSHackathonClient.PWS_Service.RiskAssessment[]> GetAllRiskAssessmentsAsync();
+        System.Threading.Tasks.Task<PWSHackathonClient.PSW_Service.RiskAssessment[]> GetAllRiskAssessmentsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IRiskAssessmentServiceChannel : PWSHackathonClient.PWS_Service.IRiskAssessmentService, System.ServiceModel.IClientChannel {
+    public interface IRiskAssessmentServiceChannel : PWSHackathonClient.PSW_Service.IRiskAssessmentService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class RiskAssessmentServiceClient : System.ServiceModel.ClientBase<PWSHackathonClient.PWS_Service.IRiskAssessmentService>, PWSHackathonClient.PWS_Service.IRiskAssessmentService {
+    public partial class RiskAssessmentServiceClient : System.ServiceModel.ClientBase<PWSHackathonClient.PSW_Service.IRiskAssessmentService>, PWSHackathonClient.PSW_Service.IRiskAssessmentService {
         
         public RiskAssessmentServiceClient() {
         }
@@ -444,44 +585,121 @@ namespace PWSHackathonClient.PWS_Service {
                 base(binding, remoteAddress) {
         }
         
-        public PWSHackathonClient.PWS_Service.RiskAssessment GetRiskAssessment(string supplyReference) {
+        public PWSHackathonClient.PSW_Service.RiskAssessment GetRiskAssessment(string supplyReference) {
             return base.Channel.GetRiskAssessment(supplyReference);
         }
         
-        public System.Threading.Tasks.Task<PWSHackathonClient.PWS_Service.RiskAssessment> GetRiskAssessmentAsync(string supplyReference) {
+        public System.Threading.Tasks.Task<PWSHackathonClient.PSW_Service.RiskAssessment> GetRiskAssessmentAsync(string supplyReference) {
             return base.Channel.GetRiskAssessmentAsync(supplyReference);
         }
         
-        public PWSHackathonClient.PWS_Service.RiskAssessment CreateRiskAssessment(PWSHackathonClient.PWS_Service.RiskAssessment riskAssessment) {
+        public PWSHackathonClient.PSW_Service.RiskAssessment CreateRiskAssessment(PWSHackathonClient.PSW_Service.RiskAssessment riskAssessment) {
             return base.Channel.CreateRiskAssessment(riskAssessment);
         }
         
-        public System.Threading.Tasks.Task<PWSHackathonClient.PWS_Service.RiskAssessment> CreateRiskAssessmentAsync(PWSHackathonClient.PWS_Service.RiskAssessment riskAssessment) {
+        public System.Threading.Tasks.Task<PWSHackathonClient.PSW_Service.RiskAssessment> CreateRiskAssessmentAsync(PWSHackathonClient.PSW_Service.RiskAssessment riskAssessment) {
             return base.Channel.CreateRiskAssessmentAsync(riskAssessment);
         }
         
-        public PWSHackathonClient.PWS_Service.RiskAssessment DeleteRiskAssessment(PWSHackathonClient.PWS_Service.RiskAssessment riskAssessment) {
+        public PWSHackathonClient.PSW_Service.RiskAssessment DeleteRiskAssessment(PWSHackathonClient.PSW_Service.RiskAssessment riskAssessment) {
             return base.Channel.DeleteRiskAssessment(riskAssessment);
         }
         
-        public System.Threading.Tasks.Task<PWSHackathonClient.PWS_Service.RiskAssessment> DeleteRiskAssessmentAsync(PWSHackathonClient.PWS_Service.RiskAssessment riskAssessment) {
+        public System.Threading.Tasks.Task<PWSHackathonClient.PSW_Service.RiskAssessment> DeleteRiskAssessmentAsync(PWSHackathonClient.PSW_Service.RiskAssessment riskAssessment) {
             return base.Channel.DeleteRiskAssessmentAsync(riskAssessment);
         }
         
-        public PWSHackathonClient.PWS_Service.RiskAssessment UpdateRiskAssessment(PWSHackathonClient.PWS_Service.RiskAssessment riskAssessment) {
+        public PWSHackathonClient.PSW_Service.RiskAssessment UpdateRiskAssessment(PWSHackathonClient.PSW_Service.RiskAssessment riskAssessment) {
             return base.Channel.UpdateRiskAssessment(riskAssessment);
         }
         
-        public System.Threading.Tasks.Task<PWSHackathonClient.PWS_Service.RiskAssessment> UpdateRiskAssessmentAsync(PWSHackathonClient.PWS_Service.RiskAssessment riskAssessment) {
+        public System.Threading.Tasks.Task<PWSHackathonClient.PSW_Service.RiskAssessment> UpdateRiskAssessmentAsync(PWSHackathonClient.PSW_Service.RiskAssessment riskAssessment) {
             return base.Channel.UpdateRiskAssessmentAsync(riskAssessment);
         }
         
-        public PWSHackathonClient.PWS_Service.RiskAssessment[] GetAllRiskAssessments() {
+        public PWSHackathonClient.PSW_Service.RiskAssessment[] GetAllRiskAssessments() {
             return base.Channel.GetAllRiskAssessments();
         }
         
-        public System.Threading.Tasks.Task<PWSHackathonClient.PWS_Service.RiskAssessment[]> GetAllRiskAssessmentsAsync() {
+        public System.Threading.Tasks.Task<PWSHackathonClient.PSW_Service.RiskAssessment[]> GetAllRiskAssessmentsAsync() {
             return base.Channel.GetAllRiskAssessmentsAsync();
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="PSW_Service.IRiskQuestionService")]
+    public interface IRiskQuestionService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskQuestionService/CreateBlankRisks", ReplyAction="http://tempuri.org/IRiskQuestionService/CreateBlankRisksResponse")]
+        PWSHackathonClient.PSW_Service.RiskQuestion[] CreateBlankRisks(string riskAssessmentSupplyReference);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskQuestionService/CreateBlankRisks", ReplyAction="http://tempuri.org/IRiskQuestionService/CreateBlankRisksResponse")]
+        System.Threading.Tasks.Task<PWSHackathonClient.PSW_Service.RiskQuestion[]> CreateBlankRisksAsync(string riskAssessmentSupplyReference);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskQuestionService/UpdateRiskQuestion", ReplyAction="http://tempuri.org/IRiskQuestionService/UpdateRiskQuestionResponse")]
+        PWSHackathonClient.PSW_Service.RiskQuestion UpdateRiskQuestion(PWSHackathonClient.PSW_Service.RiskQuestion riskQuestion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskQuestionService/UpdateRiskQuestion", ReplyAction="http://tempuri.org/IRiskQuestionService/UpdateRiskQuestionResponse")]
+        System.Threading.Tasks.Task<PWSHackathonClient.PSW_Service.RiskQuestion> UpdateRiskQuestionAsync(PWSHackathonClient.PSW_Service.RiskQuestion riskQuestion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskQuestionService/GetRiskQuestionsForRiskAssessment", ReplyAction="http://tempuri.org/IRiskQuestionService/GetRiskQuestionsForRiskAssessmentResponse" +
+            "")]
+        PWSHackathonClient.PSW_Service.RiskQuestion[] GetRiskQuestionsForRiskAssessment(string riskAssessmentSupplierRefId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskQuestionService/GetRiskQuestionsForRiskAssessment", ReplyAction="http://tempuri.org/IRiskQuestionService/GetRiskQuestionsForRiskAssessmentResponse" +
+            "")]
+        System.Threading.Tasks.Task<PWSHackathonClient.PSW_Service.RiskQuestion[]> GetRiskQuestionsForRiskAssessmentAsync(string riskAssessmentSupplierRefId);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IRiskQuestionServiceChannel : PWSHackathonClient.PSW_Service.IRiskQuestionService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class RiskQuestionServiceClient : System.ServiceModel.ClientBase<PWSHackathonClient.PSW_Service.IRiskQuestionService>, PWSHackathonClient.PSW_Service.IRiskQuestionService {
+        
+        public RiskQuestionServiceClient() {
+        }
+        
+        public RiskQuestionServiceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public RiskQuestionServiceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public RiskQuestionServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public RiskQuestionServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public PWSHackathonClient.PSW_Service.RiskQuestion[] CreateBlankRisks(string riskAssessmentSupplyReference) {
+            return base.Channel.CreateBlankRisks(riskAssessmentSupplyReference);
+        }
+        
+        public System.Threading.Tasks.Task<PWSHackathonClient.PSW_Service.RiskQuestion[]> CreateBlankRisksAsync(string riskAssessmentSupplyReference) {
+            return base.Channel.CreateBlankRisksAsync(riskAssessmentSupplyReference);
+        }
+        
+        public PWSHackathonClient.PSW_Service.RiskQuestion UpdateRiskQuestion(PWSHackathonClient.PSW_Service.RiskQuestion riskQuestion) {
+            return base.Channel.UpdateRiskQuestion(riskQuestion);
+        }
+        
+        public System.Threading.Tasks.Task<PWSHackathonClient.PSW_Service.RiskQuestion> UpdateRiskQuestionAsync(PWSHackathonClient.PSW_Service.RiskQuestion riskQuestion) {
+            return base.Channel.UpdateRiskQuestionAsync(riskQuestion);
+        }
+        
+        public PWSHackathonClient.PSW_Service.RiskQuestion[] GetRiskQuestionsForRiskAssessment(string riskAssessmentSupplierRefId) {
+            return base.Channel.GetRiskQuestionsForRiskAssessment(riskAssessmentSupplierRefId);
+        }
+        
+        public System.Threading.Tasks.Task<PWSHackathonClient.PSW_Service.RiskQuestion[]> GetRiskQuestionsForRiskAssessmentAsync(string riskAssessmentSupplierRefId) {
+            return base.Channel.GetRiskQuestionsForRiskAssessmentAsync(riskAssessmentSupplierRefId);
         }
     }
 }

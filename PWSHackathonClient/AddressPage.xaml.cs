@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using PWSHackathonClient.PWS_Service;
+using PWSHackathonClient.PSW_Service;
 
 
 namespace PWSHackathonClient
@@ -31,7 +31,7 @@ namespace PWSHackathonClient
 
         private void CreateRiskAssessment()
         {
-            using (PWSHackathonClient.PWS_Service.RiskAssessmentServiceClient proxy = new RiskAssessmentServiceClient())
+            using (PWSHackathonClient.PSW_Service.RiskAssessmentServiceClient proxy = new RiskAssessmentServiceClient())
             {
                 RiskAssessment ra = new RiskAssessment();
                 ra.LocalAuthority = "Daves Local Authority";
@@ -46,7 +46,7 @@ namespace PWSHackathonClient
 
         private void CreateAddress()
         {
-            using (PWSHackathonClient.PWS_Service.AddressServiceClient proxy = new AddressServiceClient())
+            using (PWSHackathonClient.PSW_Service.AddressServiceClient proxy = new AddressServiceClient())
             {
                 Address addr = CreateAddressFromScreen();            
 
