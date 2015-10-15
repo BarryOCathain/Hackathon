@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace PWSHackathonClient
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for RiskPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RiskPage : Page
     {
-        public MainWindow()
+        public RiskPage()
         {
             InitializeComponent();
         }

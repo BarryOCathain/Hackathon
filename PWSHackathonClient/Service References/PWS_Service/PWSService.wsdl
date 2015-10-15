@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PWSService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/PWSHackathonWCF" />
+      <xs:element name="GetAddress">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="postcode" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAddressResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/PWSHackathonWCF" minOccurs="0" name="GetAddressResult" nillable="true" type="q1:Address" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateAddress">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/PWSHackathonWCF" minOccurs="0" name="address" nillable="true" type="q2:Address" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateAddressResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PWSHackathonWCF" minOccurs="0" name="CreateAddressResult" nillable="true" type="q3:Address" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteAddress">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/PWSHackathonWCF" minOccurs="0" name="address" nillable="true" type="q4:Address" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteAddressResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/PWSHackathonWCF" minOccurs="0" name="DeleteAddressResult" nillable="true" type="q5:Address" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateAddress">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/PWSHackathonWCF" minOccurs="0" name="address" nillable="true" type="q6:Address" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateAddressResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/PWSHackathonWCF" minOccurs="0" name="UpdateAddressResult" nillable="true" type="q7:Address" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAllAddresses">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAllAddressesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/PWSHackathonWCF" minOccurs="0" name="GetAllAddressesResult" nillable="true" type="q8:ArrayOfAddress" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetRiskAssessment">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="supplyReference" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetRiskAssessmentResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/PWSHackathonWCF" minOccurs="0" name="GetRiskAssessmentResult" nillable="true" type="q9:RiskAssessment" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateRiskAssessment">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/PWSHackathonWCF" minOccurs="0" name="riskAssessment" nillable="true" type="q10:RiskAssessment" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateRiskAssessmentResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/PWSHackathonWCF" minOccurs="0" name="CreateRiskAssessmentResult" nillable="true" type="q11:RiskAssessment" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteRiskAssessment">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/PWSHackathonWCF" minOccurs="0" name="riskAssessment" nillable="true" type="q12:RiskAssessment" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteRiskAssessmentResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/PWSHackathonWCF" minOccurs="0" name="DeleteRiskAssessmentResult" nillable="true" type="q13:RiskAssessment" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateRiskAssessment">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/PWSHackathonWCF" minOccurs="0" name="riskAssessment" nillable="true" type="q14:RiskAssessment" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateRiskAssessmentResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/PWSHackathonWCF" minOccurs="0" name="UpdateRiskAssessmentResult" nillable="true" type="q15:RiskAssessment" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAllRiskAssessments">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAllRiskAssessmentsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/PWSHackathonWCF" minOccurs="0" name="GetAllRiskAssessmentsResult" nillable="true" type="q16:ArrayOfRiskAssessment" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PWSHackathonWCF" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PWSHackathonWCF" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="Address">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EMail" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Line1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Line2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Line3" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Line4" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PostCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RiskAssessmentId" type="xs:int" />
+          <xs:element minOccurs="0" name="TelephoneNumber" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Address" nillable="true" type="tns:Address" />
+      <xs:complexType name="ArrayOfAddress">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Address" nillable="true" type="tns:Address" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfAddress" nillable="true" type="tns:ArrayOfAddress" />
+      <xs:complexType name="RiskAssessment">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DateCreated" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LocalAuthority" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SupplyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SupplyReference" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="RiskAssessment" nillable="true" type="tns:RiskAssessment" />
+      <xs:complexType name="ArrayOfRiskAssessment">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="RiskAssessment" nillable="true" type="tns:RiskAssessment" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfRiskAssessment" nillable="true" type="tns:ArrayOfRiskAssessment" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IAddressService_GetAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAddress" />
+  </wsdl:message>
+  <wsdl:message name="IAddressService_GetAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAddressService_CreateAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAddress" />
+  </wsdl:message>
+  <wsdl:message name="IAddressService_CreateAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAddressService_DeleteAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAddress" />
+  </wsdl:message>
+  <wsdl:message name="IAddressService_DeleteAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAddressService_UpdateAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAddress" />
+  </wsdl:message>
+  <wsdl:message name="IAddressService_UpdateAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAddressService_GetAllAddresses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAddresses" />
+  </wsdl:message>
+  <wsdl:message name="IAddressService_GetAllAddresses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAddressesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRiskAssessmentService_GetRiskAssessment_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRiskAssessment" />
+  </wsdl:message>
+  <wsdl:message name="IRiskAssessmentService_GetRiskAssessment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRiskAssessmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRiskAssessmentService_CreateRiskAssessment_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRiskAssessment" />
+  </wsdl:message>
+  <wsdl:message name="IRiskAssessmentService_CreateRiskAssessment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRiskAssessmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRiskAssessmentService_DeleteRiskAssessment_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRiskAssessment" />
+  </wsdl:message>
+  <wsdl:message name="IRiskAssessmentService_DeleteRiskAssessment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRiskAssessmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRiskAssessmentService_UpdateRiskAssessment_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRiskAssessment" />
+  </wsdl:message>
+  <wsdl:message name="IRiskAssessmentService_UpdateRiskAssessment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRiskAssessmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRiskAssessmentService_GetAllRiskAssessments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRiskAssessments" />
+  </wsdl:message>
+  <wsdl:message name="IRiskAssessmentService_GetAllRiskAssessments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRiskAssessmentsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAddressService">
+    <wsdl:operation name="GetAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAddressService/GetAddress" message="tns:IAddressService_GetAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAddressService/GetAddressResponse" message="tns:IAddressService_GetAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAddressService/CreateAddress" message="tns:IAddressService_CreateAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAddressService/CreateAddressResponse" message="tns:IAddressService_CreateAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAddressService/DeleteAddress" message="tns:IAddressService_DeleteAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAddressService/DeleteAddressResponse" message="tns:IAddressService_DeleteAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAddressService/UpdateAddress" message="tns:IAddressService_UpdateAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAddressService/UpdateAddressResponse" message="tns:IAddressService_UpdateAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAddresses">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAddressService/GetAllAddresses" message="tns:IAddressService_GetAllAddresses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAddressService/GetAllAddressesResponse" message="tns:IAddressService_GetAllAddresses_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IRiskAssessmentService">
+    <wsdl:operation name="GetRiskAssessment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRiskAssessmentService/GetRiskAssessment" message="tns:IRiskAssessmentService_GetRiskAssessment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRiskAssessmentService/GetRiskAssessmentResponse" message="tns:IRiskAssessmentService_GetRiskAssessment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateRiskAssessment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRiskAssessmentService/CreateRiskAssessment" message="tns:IRiskAssessmentService_CreateRiskAssessment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRiskAssessmentService/CreateRiskAssessmentResponse" message="tns:IRiskAssessmentService_CreateRiskAssessment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRiskAssessment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRiskAssessmentService/DeleteRiskAssessment" message="tns:IRiskAssessmentService_DeleteRiskAssessment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRiskAssessmentService/DeleteRiskAssessmentResponse" message="tns:IRiskAssessmentService_DeleteRiskAssessment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRiskAssessment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRiskAssessmentService/UpdateRiskAssessment" message="tns:IRiskAssessmentService_UpdateRiskAssessment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRiskAssessmentService/UpdateRiskAssessmentResponse" message="tns:IRiskAssessmentService_UpdateRiskAssessment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRiskAssessments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRiskAssessmentService/GetAllRiskAssessments" message="tns:IRiskAssessmentService_GetAllRiskAssessments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRiskAssessmentService/GetAllRiskAssessmentsResponse" message="tns:IRiskAssessmentService_GetAllRiskAssessments_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAddressService" type="tns:IAddressService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAddress">
+      <soap:operation soapAction="http://tempuri.org/IAddressService/GetAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAddress">
+      <soap:operation soapAction="http://tempuri.org/IAddressService/CreateAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAddress">
+      <soap:operation soapAction="http://tempuri.org/IAddressService/DeleteAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAddress">
+      <soap:operation soapAction="http://tempuri.org/IAddressService/UpdateAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAddresses">
+      <soap:operation soapAction="http://tempuri.org/IAddressService/GetAllAddresses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IRiskAssessmentService" type="tns:IRiskAssessmentService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetRiskAssessment">
+      <soap:operation soapAction="http://tempuri.org/IRiskAssessmentService/GetRiskAssessment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateRiskAssessment">
+      <soap:operation soapAction="http://tempuri.org/IRiskAssessmentService/CreateRiskAssessment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRiskAssessment">
+      <soap:operation soapAction="http://tempuri.org/IRiskAssessmentService/DeleteRiskAssessment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRiskAssessment">
+      <soap:operation soapAction="http://tempuri.org/IRiskAssessmentService/UpdateRiskAssessment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRiskAssessments">
+      <soap:operation soapAction="http://tempuri.org/IRiskAssessmentService/GetAllRiskAssessments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PWSService">
+    <wsdl:port name="BasicHttpBinding_IAddressService" binding="tns:BasicHttpBinding_IAddressService">
+      <soap:address location="http://localhost:64972/PWSService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IRiskAssessmentService" binding="tns:BasicHttpBinding_IRiskAssessmentService">
+      <soap:address location="http://localhost:64972/PWSService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
