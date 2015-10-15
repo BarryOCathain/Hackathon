@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f04414d6-44a2-4060-9cc6-d4a71d224467" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="12b73544-6015-4d23-947d-5c0ff53c805f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,10 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:64972/PWSService.svc?singleWsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:64972/PWSService.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="PWSService.wsdl" MetadataType="Wsdl" ID="d12165bb-2f86-4bb5-9c0a-633b6ede45b0" SourceId="1" SourceUrl="http://localhost:64972/PWSService.svc?singleWsdl" />
+    <MetadataFile FileName="PWSService.xsd" MetadataType="Schema" ID="e8c7e1de-6573-40bc-8c67-dec25f1dbe6d" SourceId="1" SourceUrl="http://localhost:64972/PWSService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PWSService1.xsd" MetadataType="Schema" ID="7916718d-ffcf-43fd-a5ce-06a5929a4d64" SourceId="1" SourceUrl="http://localhost:64972/PWSService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PWSService.wsdl" MetadataType="Wsdl" ID="30dce4b3-af68-4134-8c21-2304b4bd2231" SourceId="1" SourceUrl="http://localhost:64972/PWSService.svc?wsdl" />
+    <MetadataFile FileName="PWSService2.xsd" MetadataType="Schema" ID="fe7cbb6e-5d53-4a39-aeae-b2d9f444b31b" SourceId="1" SourceUrl="http://localhost:64972/PWSService.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

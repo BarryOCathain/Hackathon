@@ -144,6 +144,15 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\PSW_Service\PWSService.wsdl" />
+    <None Include="Service References\PSW_Service\PWSService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PSW_Service\PWSService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PSW_Service\PWSService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

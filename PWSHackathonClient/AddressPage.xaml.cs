@@ -23,10 +23,17 @@ namespace PWSHackathonClient
     /// </summary>
     public partial class AddressPage : Page
     {
-        
+        private string _supplyRef;
+              
         public AddressPage()
         {
             InitializeComponent();
+        }
+
+        public AddressPage(string supplyRef)
+        {
+            InitializeComponent();
+            _supplyRef = supplyRef;
         }
 
         private void CreateAddress()
@@ -76,28 +83,30 @@ namespace PWSHackathonClient
             return ret;
         }
 
-        //private List<Address> GetAddressesByRiskAssessment(string supplyRef)
-        //{
-        //    List<Address> addresses;
+        private List<Address> GetAddressesByRiskAssessment(string supplyRef)
+        {
+            List<Address> addresses;
 
-        //    using (PWSHackathonClient.PSW_Service.AddressServiceClient proxy = new AddressServiceClient())
-        //    {
-        //        addresses = proxy.GetAddressesByRiskAssessment(supplyRef);
-        //    }
+            using (PWSHackathonClient.PSW_Service.AddressServiceClient proxy = new AddressServiceClient())
+            {
+                addresses = proxy.GetAddressesByRiskAssessment(supplyRef).ToList();
+            }
 
-        //    if (addresses != null)
-        //    {
-        //        return addresses;
-        //    }
-        //    else
-        //    {
-        //        return null;
-        //    }
-        //}
+            if (addresses != null)
+            {
+                return addresses;
+            }
+            else
+            {
+                return null;
+            }
+        }
 
-        //private void BindAddressesToDataGrid()
-        //{
-        //    addressesDataGrid.DataSource = GetAddressesByRiskAssessment(SupplierNameTxt.Text);
-        //}
+        private void BindAddressesToDataGrid()
+        {
+            //TODO: Bind to the datagrid once created.
+            //addressesDataGrid.DataSource
+            List<Address> addys = GetAddressesByRiskAssessment(_supplyRef);
+        }
     }
 }
