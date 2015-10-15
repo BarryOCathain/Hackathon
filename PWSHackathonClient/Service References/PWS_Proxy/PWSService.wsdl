@@ -37,6 +37,54 @@
   <wsdl:message name="IAddressService_GetAllAddresses_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllAddressesResponse" />
   </wsdl:message>
+  <wsdl:message name="IRiskAssessmentService_GetRiskAssessment_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRiskAssessment" />
+  </wsdl:message>
+  <wsdl:message name="IRiskAssessmentService_GetRiskAssessment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRiskAssessmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRiskAssessmentService_CreateRiskAssessment_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRiskAssessment" />
+  </wsdl:message>
+  <wsdl:message name="IRiskAssessmentService_CreateRiskAssessment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRiskAssessmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRiskAssessmentService_DeleteRiskAssessment_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRiskAssessment" />
+  </wsdl:message>
+  <wsdl:message name="IRiskAssessmentService_DeleteRiskAssessment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRiskAssessmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRiskAssessmentService_UpdateRiskAssessment_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRiskAssessment" />
+  </wsdl:message>
+  <wsdl:message name="IRiskAssessmentService_UpdateRiskAssessment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRiskAssessmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRiskAssessmentService_GetAllRiskAssessments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRiskAssessments" />
+  </wsdl:message>
+  <wsdl:message name="IRiskAssessmentService_GetAllRiskAssessments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRiskAssessmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRiskQuestionService_CreateBlankRisks_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateBlankRisks" />
+  </wsdl:message>
+  <wsdl:message name="IRiskQuestionService_CreateBlankRisks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateBlankRisksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRiskQuestionService_UpdateRiskQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRiskQuestion" />
+  </wsdl:message>
+  <wsdl:message name="IRiskQuestionService_UpdateRiskQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRiskQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRiskQuestionService_GetRiskQuestionsForRiskAssessment_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRiskQuestionsForRiskAssessment" />
+  </wsdl:message>
+  <wsdl:message name="IRiskQuestionService_GetRiskQuestionsForRiskAssessment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRiskQuestionsForRiskAssessmentResponse" />
+  </wsdl:message>
   <wsdl:portType name="IAddressService">
     <wsdl:operation name="GetAddress">
       <wsdl:input wsaw:Action="http://tempuri.org/IAddressService/GetAddress" message="tns:IAddressService_GetAddress_InputMessage" />
@@ -57,6 +105,42 @@
     <wsdl:operation name="GetAllAddresses">
       <wsdl:input wsaw:Action="http://tempuri.org/IAddressService/GetAllAddresses" message="tns:IAddressService_GetAllAddresses_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAddressService/GetAllAddressesResponse" message="tns:IAddressService_GetAllAddresses_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IRiskAssessmentService">
+    <wsdl:operation name="GetRiskAssessment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRiskAssessmentService/GetRiskAssessment" message="tns:IRiskAssessmentService_GetRiskAssessment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRiskAssessmentService/GetRiskAssessmentResponse" message="tns:IRiskAssessmentService_GetRiskAssessment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateRiskAssessment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRiskAssessmentService/CreateRiskAssessment" message="tns:IRiskAssessmentService_CreateRiskAssessment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRiskAssessmentService/CreateRiskAssessmentResponse" message="tns:IRiskAssessmentService_CreateRiskAssessment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRiskAssessment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRiskAssessmentService/DeleteRiskAssessment" message="tns:IRiskAssessmentService_DeleteRiskAssessment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRiskAssessmentService/DeleteRiskAssessmentResponse" message="tns:IRiskAssessmentService_DeleteRiskAssessment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRiskAssessment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRiskAssessmentService/UpdateRiskAssessment" message="tns:IRiskAssessmentService_UpdateRiskAssessment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRiskAssessmentService/UpdateRiskAssessmentResponse" message="tns:IRiskAssessmentService_UpdateRiskAssessment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRiskAssessments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRiskAssessmentService/GetAllRiskAssessments" message="tns:IRiskAssessmentService_GetAllRiskAssessments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRiskAssessmentService/GetAllRiskAssessmentsResponse" message="tns:IRiskAssessmentService_GetAllRiskAssessments_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IRiskQuestionService">
+    <wsdl:operation name="CreateBlankRisks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRiskQuestionService/CreateBlankRisks" message="tns:IRiskQuestionService_CreateBlankRisks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRiskQuestionService/CreateBlankRisksResponse" message="tns:IRiskQuestionService_CreateBlankRisks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRiskQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRiskQuestionService/UpdateRiskQuestion" message="tns:IRiskQuestionService_UpdateRiskQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRiskQuestionService/UpdateRiskQuestionResponse" message="tns:IRiskQuestionService_UpdateRiskQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRiskQuestionsForRiskAssessment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRiskQuestionService/GetRiskQuestionsForRiskAssessment" message="tns:IRiskQuestionService_GetRiskQuestionsForRiskAssessment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRiskQuestionService/GetRiskQuestionsForRiskAssessmentResponse" message="tns:IRiskQuestionService_GetRiskQuestionsForRiskAssessment_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAddressService" type="tns:IAddressService">
@@ -107,8 +191,92 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IRiskAssessmentService" type="tns:IRiskAssessmentService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetRiskAssessment">
+      <soap:operation soapAction="http://tempuri.org/IRiskAssessmentService/GetRiskAssessment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateRiskAssessment">
+      <soap:operation soapAction="http://tempuri.org/IRiskAssessmentService/CreateRiskAssessment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRiskAssessment">
+      <soap:operation soapAction="http://tempuri.org/IRiskAssessmentService/DeleteRiskAssessment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRiskAssessment">
+      <soap:operation soapAction="http://tempuri.org/IRiskAssessmentService/UpdateRiskAssessment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRiskAssessments">
+      <soap:operation soapAction="http://tempuri.org/IRiskAssessmentService/GetAllRiskAssessments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IRiskQuestionService" type="tns:IRiskQuestionService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateBlankRisks">
+      <soap:operation soapAction="http://tempuri.org/IRiskQuestionService/CreateBlankRisks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRiskQuestion">
+      <soap:operation soapAction="http://tempuri.org/IRiskQuestionService/UpdateRiskQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRiskQuestionsForRiskAssessment">
+      <soap:operation soapAction="http://tempuri.org/IRiskQuestionService/GetRiskQuestionsForRiskAssessment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="PWSService">
     <wsdl:port name="BasicHttpBinding_IAddressService" binding="tns:BasicHttpBinding_IAddressService">
+      <soap:address location="http://localhost:64972/PWSService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IRiskAssessmentService" binding="tns:BasicHttpBinding_IRiskAssessmentService">
+      <soap:address location="http://localhost:64972/PWSService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IRiskQuestionService" binding="tns:BasicHttpBinding_IRiskQuestionService">
       <soap:address location="http://localhost:64972/PWSService.svc" />
     </wsdl:port>
   </wsdl:service>

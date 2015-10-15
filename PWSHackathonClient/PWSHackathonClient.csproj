@@ -101,6 +101,12 @@
     <None Include="Service References\PWS_Proxy\PWSHackathonClient.PWS_Proxy.Address.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\PWS_Proxy\PWSHackathonClient.PWS_Proxy.RiskAssessment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PWS_Proxy\PWSHackathonClient.PWS_Proxy.RiskQuestion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\PWS_Proxy\PWSService.wsdl" />
     <None Include="Service References\PWS_Proxy\PWSService.xsd">
       <SubType>Designer</SubType>
@@ -113,7 +119,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

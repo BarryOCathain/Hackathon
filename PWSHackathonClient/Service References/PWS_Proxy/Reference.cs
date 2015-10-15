@@ -44,6 +44,9 @@ namespace PWSHackathonClient.PWS_Proxy {
         private string PostCodeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RiskAssessmentSupplyRefField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TelephoneNumberField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -148,6 +151,19 @@ namespace PWSHackathonClient.PWS_Proxy {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RiskAssessmentSupplyRef {
+            get {
+                return this.RiskAssessmentSupplyRefField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RiskAssessmentSupplyRefField, value) != true)) {
+                    this.RiskAssessmentSupplyRefField = value;
+                    this.RaisePropertyChanged("RiskAssessmentSupplyRef");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string TelephoneNumber {
             get {
                 return this.TelephoneNumberField;
@@ -156,6 +172,240 @@ namespace PWSHackathonClient.PWS_Proxy {
                 if ((object.ReferenceEquals(this.TelephoneNumberField, value) != true)) {
                     this.TelephoneNumberField = value;
                     this.RaisePropertyChanged("TelephoneNumber");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RiskAssessment", Namespace="http://schemas.datacontract.org/2004/07/PWSHackathonWCF")]
+    [System.SerializableAttribute()]
+    public partial class RiskAssessment : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DateCreatedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LocalAuthorityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SupplyNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SupplyReferenceField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DateCreated {
+            get {
+                return this.DateCreatedField;
+            }
+            set {
+                if ((this.DateCreatedField.Equals(value) != true)) {
+                    this.DateCreatedField = value;
+                    this.RaisePropertyChanged("DateCreated");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LocalAuthority {
+            get {
+                return this.LocalAuthorityField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LocalAuthorityField, value) != true)) {
+                    this.LocalAuthorityField = value;
+                    this.RaisePropertyChanged("LocalAuthority");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SupplyName {
+            get {
+                return this.SupplyNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SupplyNameField, value) != true)) {
+                    this.SupplyNameField = value;
+                    this.RaisePropertyChanged("SupplyName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SupplyReference {
+            get {
+                return this.SupplyReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SupplyReferenceField, value) != true)) {
+                    this.SupplyReferenceField = value;
+                    this.RaisePropertyChanged("SupplyReference");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RiskQuestion", Namespace="http://schemas.datacontract.org/2004/07/PWSHackathonWCF")]
+    [System.SerializableAttribute()]
+    public partial class RiskQuestion : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsHazardField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int LikelihoodField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ResponseField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RiskAssessmentSupplyReferenceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RiskNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int SeverityField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsHazard {
+            get {
+                return this.IsHazardField;
+            }
+            set {
+                if ((this.IsHazardField.Equals(value) != true)) {
+                    this.IsHazardField = value;
+                    this.RaisePropertyChanged("IsHazard");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Likelihood {
+            get {
+                return this.LikelihoodField;
+            }
+            set {
+                if ((this.LikelihoodField.Equals(value) != true)) {
+                    this.LikelihoodField = value;
+                    this.RaisePropertyChanged("Likelihood");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Response {
+            get {
+                return this.ResponseField;
+            }
+            set {
+                if ((this.ResponseField.Equals(value) != true)) {
+                    this.ResponseField = value;
+                    this.RaisePropertyChanged("Response");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RiskAssessmentSupplyReference {
+            get {
+                return this.RiskAssessmentSupplyReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RiskAssessmentSupplyReferenceField, value) != true)) {
+                    this.RiskAssessmentSupplyReferenceField = value;
+                    this.RaisePropertyChanged("RiskAssessmentSupplyReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RiskNumber {
+            get {
+                return this.RiskNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RiskNumberField, value) != true)) {
+                    this.RiskNumberField = value;
+                    this.RaisePropertyChanged("RiskNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Severity {
+            get {
+                return this.SeverityField;
+            }
+            set {
+                if ((this.SeverityField.Equals(value) != true)) {
+                    this.SeverityField = value;
+                    this.RaisePropertyChanged("Severity");
                 }
             }
         }
@@ -270,6 +520,186 @@ namespace PWSHackathonClient.PWS_Proxy {
         
         public System.Threading.Tasks.Task<PWSHackathonClient.PWS_Proxy.Address[]> GetAllAddressesAsync() {
             return base.Channel.GetAllAddressesAsync();
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="PWS_Proxy.IRiskAssessmentService")]
+    public interface IRiskAssessmentService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskAssessmentService/GetRiskAssessment", ReplyAction="http://tempuri.org/IRiskAssessmentService/GetRiskAssessmentResponse")]
+        PWSHackathonClient.PWS_Proxy.RiskAssessment GetRiskAssessment(string supplyReference);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskAssessmentService/GetRiskAssessment", ReplyAction="http://tempuri.org/IRiskAssessmentService/GetRiskAssessmentResponse")]
+        System.Threading.Tasks.Task<PWSHackathonClient.PWS_Proxy.RiskAssessment> GetRiskAssessmentAsync(string supplyReference);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskAssessmentService/CreateRiskAssessment", ReplyAction="http://tempuri.org/IRiskAssessmentService/CreateRiskAssessmentResponse")]
+        PWSHackathonClient.PWS_Proxy.RiskAssessment CreateRiskAssessment(PWSHackathonClient.PWS_Proxy.RiskAssessment riskAssessment);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskAssessmentService/CreateRiskAssessment", ReplyAction="http://tempuri.org/IRiskAssessmentService/CreateRiskAssessmentResponse")]
+        System.Threading.Tasks.Task<PWSHackathonClient.PWS_Proxy.RiskAssessment> CreateRiskAssessmentAsync(PWSHackathonClient.PWS_Proxy.RiskAssessment riskAssessment);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskAssessmentService/DeleteRiskAssessment", ReplyAction="http://tempuri.org/IRiskAssessmentService/DeleteRiskAssessmentResponse")]
+        PWSHackathonClient.PWS_Proxy.RiskAssessment DeleteRiskAssessment(PWSHackathonClient.PWS_Proxy.RiskAssessment riskAssessment);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskAssessmentService/DeleteRiskAssessment", ReplyAction="http://tempuri.org/IRiskAssessmentService/DeleteRiskAssessmentResponse")]
+        System.Threading.Tasks.Task<PWSHackathonClient.PWS_Proxy.RiskAssessment> DeleteRiskAssessmentAsync(PWSHackathonClient.PWS_Proxy.RiskAssessment riskAssessment);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskAssessmentService/UpdateRiskAssessment", ReplyAction="http://tempuri.org/IRiskAssessmentService/UpdateRiskAssessmentResponse")]
+        PWSHackathonClient.PWS_Proxy.RiskAssessment UpdateRiskAssessment(PWSHackathonClient.PWS_Proxy.RiskAssessment riskAssessment);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskAssessmentService/UpdateRiskAssessment", ReplyAction="http://tempuri.org/IRiskAssessmentService/UpdateRiskAssessmentResponse")]
+        System.Threading.Tasks.Task<PWSHackathonClient.PWS_Proxy.RiskAssessment> UpdateRiskAssessmentAsync(PWSHackathonClient.PWS_Proxy.RiskAssessment riskAssessment);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskAssessmentService/GetAllRiskAssessments", ReplyAction="http://tempuri.org/IRiskAssessmentService/GetAllRiskAssessmentsResponse")]
+        PWSHackathonClient.PWS_Proxy.RiskAssessment[] GetAllRiskAssessments();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskAssessmentService/GetAllRiskAssessments", ReplyAction="http://tempuri.org/IRiskAssessmentService/GetAllRiskAssessmentsResponse")]
+        System.Threading.Tasks.Task<PWSHackathonClient.PWS_Proxy.RiskAssessment[]> GetAllRiskAssessmentsAsync();
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IRiskAssessmentServiceChannel : PWSHackathonClient.PWS_Proxy.IRiskAssessmentService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class RiskAssessmentServiceClient : System.ServiceModel.ClientBase<PWSHackathonClient.PWS_Proxy.IRiskAssessmentService>, PWSHackathonClient.PWS_Proxy.IRiskAssessmentService {
+        
+        public RiskAssessmentServiceClient() {
+        }
+        
+        public RiskAssessmentServiceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public RiskAssessmentServiceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public RiskAssessmentServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public RiskAssessmentServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public PWSHackathonClient.PWS_Proxy.RiskAssessment GetRiskAssessment(string supplyReference) {
+            return base.Channel.GetRiskAssessment(supplyReference);
+        }
+        
+        public System.Threading.Tasks.Task<PWSHackathonClient.PWS_Proxy.RiskAssessment> GetRiskAssessmentAsync(string supplyReference) {
+            return base.Channel.GetRiskAssessmentAsync(supplyReference);
+        }
+        
+        public PWSHackathonClient.PWS_Proxy.RiskAssessment CreateRiskAssessment(PWSHackathonClient.PWS_Proxy.RiskAssessment riskAssessment) {
+            return base.Channel.CreateRiskAssessment(riskAssessment);
+        }
+        
+        public System.Threading.Tasks.Task<PWSHackathonClient.PWS_Proxy.RiskAssessment> CreateRiskAssessmentAsync(PWSHackathonClient.PWS_Proxy.RiskAssessment riskAssessment) {
+            return base.Channel.CreateRiskAssessmentAsync(riskAssessment);
+        }
+        
+        public PWSHackathonClient.PWS_Proxy.RiskAssessment DeleteRiskAssessment(PWSHackathonClient.PWS_Proxy.RiskAssessment riskAssessment) {
+            return base.Channel.DeleteRiskAssessment(riskAssessment);
+        }
+        
+        public System.Threading.Tasks.Task<PWSHackathonClient.PWS_Proxy.RiskAssessment> DeleteRiskAssessmentAsync(PWSHackathonClient.PWS_Proxy.RiskAssessment riskAssessment) {
+            return base.Channel.DeleteRiskAssessmentAsync(riskAssessment);
+        }
+        
+        public PWSHackathonClient.PWS_Proxy.RiskAssessment UpdateRiskAssessment(PWSHackathonClient.PWS_Proxy.RiskAssessment riskAssessment) {
+            return base.Channel.UpdateRiskAssessment(riskAssessment);
+        }
+        
+        public System.Threading.Tasks.Task<PWSHackathonClient.PWS_Proxy.RiskAssessment> UpdateRiskAssessmentAsync(PWSHackathonClient.PWS_Proxy.RiskAssessment riskAssessment) {
+            return base.Channel.UpdateRiskAssessmentAsync(riskAssessment);
+        }
+        
+        public PWSHackathonClient.PWS_Proxy.RiskAssessment[] GetAllRiskAssessments() {
+            return base.Channel.GetAllRiskAssessments();
+        }
+        
+        public System.Threading.Tasks.Task<PWSHackathonClient.PWS_Proxy.RiskAssessment[]> GetAllRiskAssessmentsAsync() {
+            return base.Channel.GetAllRiskAssessmentsAsync();
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="PWS_Proxy.IRiskQuestionService")]
+    public interface IRiskQuestionService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskQuestionService/CreateBlankRisks", ReplyAction="http://tempuri.org/IRiskQuestionService/CreateBlankRisksResponse")]
+        PWSHackathonClient.PWS_Proxy.RiskQuestion[] CreateBlankRisks(string riskAssessmentSupplyReference);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskQuestionService/CreateBlankRisks", ReplyAction="http://tempuri.org/IRiskQuestionService/CreateBlankRisksResponse")]
+        System.Threading.Tasks.Task<PWSHackathonClient.PWS_Proxy.RiskQuestion[]> CreateBlankRisksAsync(string riskAssessmentSupplyReference);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskQuestionService/UpdateRiskQuestion", ReplyAction="http://tempuri.org/IRiskQuestionService/UpdateRiskQuestionResponse")]
+        PWSHackathonClient.PWS_Proxy.RiskQuestion UpdateRiskQuestion(PWSHackathonClient.PWS_Proxy.RiskQuestion riskQuestion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskQuestionService/UpdateRiskQuestion", ReplyAction="http://tempuri.org/IRiskQuestionService/UpdateRiskQuestionResponse")]
+        System.Threading.Tasks.Task<PWSHackathonClient.PWS_Proxy.RiskQuestion> UpdateRiskQuestionAsync(PWSHackathonClient.PWS_Proxy.RiskQuestion riskQuestion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskQuestionService/GetRiskQuestionsForRiskAssessment", ReplyAction="http://tempuri.org/IRiskQuestionService/GetRiskQuestionsForRiskAssessmentResponse" +
+            "")]
+        PWSHackathonClient.PWS_Proxy.RiskQuestion[] GetRiskQuestionsForRiskAssessment(string riskAssessmentSupplierRefId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRiskQuestionService/GetRiskQuestionsForRiskAssessment", ReplyAction="http://tempuri.org/IRiskQuestionService/GetRiskQuestionsForRiskAssessmentResponse" +
+            "")]
+        System.Threading.Tasks.Task<PWSHackathonClient.PWS_Proxy.RiskQuestion[]> GetRiskQuestionsForRiskAssessmentAsync(string riskAssessmentSupplierRefId);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IRiskQuestionServiceChannel : PWSHackathonClient.PWS_Proxy.IRiskQuestionService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class RiskQuestionServiceClient : System.ServiceModel.ClientBase<PWSHackathonClient.PWS_Proxy.IRiskQuestionService>, PWSHackathonClient.PWS_Proxy.IRiskQuestionService {
+        
+        public RiskQuestionServiceClient() {
+        }
+        
+        public RiskQuestionServiceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public RiskQuestionServiceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public RiskQuestionServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public RiskQuestionServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public PWSHackathonClient.PWS_Proxy.RiskQuestion[] CreateBlankRisks(string riskAssessmentSupplyReference) {
+            return base.Channel.CreateBlankRisks(riskAssessmentSupplyReference);
+        }
+        
+        public System.Threading.Tasks.Task<PWSHackathonClient.PWS_Proxy.RiskQuestion[]> CreateBlankRisksAsync(string riskAssessmentSupplyReference) {
+            return base.Channel.CreateBlankRisksAsync(riskAssessmentSupplyReference);
+        }
+        
+        public PWSHackathonClient.PWS_Proxy.RiskQuestion UpdateRiskQuestion(PWSHackathonClient.PWS_Proxy.RiskQuestion riskQuestion) {
+            return base.Channel.UpdateRiskQuestion(riskQuestion);
+        }
+        
+        public System.Threading.Tasks.Task<PWSHackathonClient.PWS_Proxy.RiskQuestion> UpdateRiskQuestionAsync(PWSHackathonClient.PWS_Proxy.RiskQuestion riskQuestion) {
+            return base.Channel.UpdateRiskQuestionAsync(riskQuestion);
+        }
+        
+        public PWSHackathonClient.PWS_Proxy.RiskQuestion[] GetRiskQuestionsForRiskAssessment(string riskAssessmentSupplierRefId) {
+            return base.Channel.GetRiskQuestionsForRiskAssessment(riskAssessmentSupplierRefId);
+        }
+        
+        public System.Threading.Tasks.Task<PWSHackathonClient.PWS_Proxy.RiskQuestion[]> GetRiskQuestionsForRiskAssessmentAsync(string riskAssessmentSupplierRefId) {
+            return base.Channel.GetRiskQuestionsForRiskAssessmentAsync(riskAssessmentSupplierRefId);
         }
     }
 }
