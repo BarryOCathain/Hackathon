@@ -27,7 +27,7 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="true" />
     <Property Name="AddressLine1" Type="nvarchar(max)" Nullable="true" />
     <Property Name="AddressLine2" Type="nvarchar(max)" Nullable="true" />
@@ -42,7 +42,7 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="LocalAuthority" Type="nvarchar(max)" Nullable="true" />
     <Property Name="SupplyReference" Type="nvarchar(max)" Nullable="true" />
     <Property Name="SupplyName" Type="nvarchar(max)" Nullable="true" />
@@ -112,7 +112,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="AddressLine1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="AddressLine2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -146,7 +146,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LocalAuthority" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SupplyReference" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SupplyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />

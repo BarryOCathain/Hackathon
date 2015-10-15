@@ -9,7 +9,10 @@ namespace PWSHackathonWCF
     {
         [OperationContract]
         List<RiskQuestion> CreateBlankRisks(string riskAssessmentSupplyReference);
-        
+
+        [OperationContract]
+        RiskQuestion UpdateRiskQuestion(RiskQuestion riskQuestion);
+
         [OperationContract]
         List<RiskQuestion> GetRiskQuestionsForRiskAssessment(string riskAssessmentSupplierRefId);
     }

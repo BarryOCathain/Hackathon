@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 10/14/2015 18:30:00
--- Generated from EDMX file: C:\TortoiseGit\Hackathon\PWSHackathonDAL\PWSModel.edmx
+-- Date Created: 10/14/2015 21:06:57
+-- Generated from EDMX file: C:\NEUEDA\Hackathon\Source\Hackathon\PWSHackathonDAL\PWSModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -50,7 +50,7 @@ GO
 
 -- Creating table 'Addresses'
 CREATE TABLE [dbo].[Addresses] (
-    [ID] int  NOT NULL,
+    [ID] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(max)  NULL,
     [AddressLine1] nvarchar(max)  NULL,
     [AddressLine2] nvarchar(max)  NULL,
@@ -65,7 +65,7 @@ GO
 
 -- Creating table 'RiskAssessments'
 CREATE TABLE [dbo].[RiskAssessments] (
-    [ID] int  NOT NULL,
+    [ID] int IDENTITY(1,1) NOT NULL,
     [LocalAuthority] nvarchar(max)  NULL,
     [SupplyReference] nvarchar(max)  NULL,
     [SupplyName] nvarchar(max)  NULL,

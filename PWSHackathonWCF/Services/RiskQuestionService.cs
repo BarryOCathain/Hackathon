@@ -24,8 +24,7 @@ namespace PWSHackathonWCF
             {
                 return result;
             }
-
-            foreach (var question in _db.Questions)
+            foreach (var question in _db.Questions.ToList())
             {
                 var risk = new Risk
                 {
@@ -77,7 +76,8 @@ namespace PWSHackathonWCF
             }
 
             var risks = _db.Risks
-                .Where(rq => rq.RiskAssessmentID == riskAssessment.ID);
+                .Where(rq => rq.RiskAssessmentID == riskAssessment.ID)
+                .ToList();
 
             foreach (var risk in risks)
             {
