@@ -453,6 +453,12 @@ namespace PWSHackathonClient.PSW_Service {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/GetAllAddresses", ReplyAction="http://tempuri.org/IAddressService/GetAllAddressesResponse")]
         System.Threading.Tasks.Task<PWSHackathonClient.PSW_Service.Address[]> GetAllAddressesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/GetAddressesByRiskAssessment", ReplyAction="http://tempuri.org/IAddressService/GetAddressesByRiskAssessmentResponse")]
+        PWSHackathonClient.PSW_Service.Address[] GetAddressesByRiskAssessment(string riskAssessmentSupplyRef);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAddressService/GetAddressesByRiskAssessment", ReplyAction="http://tempuri.org/IAddressService/GetAddressesByRiskAssessmentResponse")]
+        System.Threading.Tasks.Task<PWSHackathonClient.PSW_Service.Address[]> GetAddressesByRiskAssessmentAsync(string riskAssessmentSupplyRef);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -520,6 +526,14 @@ namespace PWSHackathonClient.PSW_Service {
         
         public System.Threading.Tasks.Task<PWSHackathonClient.PSW_Service.Address[]> GetAllAddressesAsync() {
             return base.Channel.GetAllAddressesAsync();
+        }
+        
+        public PWSHackathonClient.PSW_Service.Address[] GetAddressesByRiskAssessment(string riskAssessmentSupplyRef) {
+            return base.Channel.GetAddressesByRiskAssessment(riskAssessmentSupplyRef);
+        }
+        
+        public System.Threading.Tasks.Task<PWSHackathonClient.PSW_Service.Address[]> GetAddressesByRiskAssessmentAsync(string riskAssessmentSupplyRef) {
+            return base.Channel.GetAddressesByRiskAssessmentAsync(riskAssessmentSupplyRef);
         }
     }
     

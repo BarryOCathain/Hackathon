@@ -29,21 +29,8 @@ namespace PWSHackathonClient
             InitializeComponent();
         }
 
-        private void CreateRiskAssessment()
-        {
-            using (PWSHackathonClient.PSW_Service.RiskAssessmentServiceClient proxy = new RiskAssessmentServiceClient())
-            {
-                RiskAssessment ra = new RiskAssessment();
-                ra.LocalAuthority = "Daves Local Authority";
-                ra.SupplyName = "Daves Supply Name";
-                ra.SupplyReference = "Daves Supply Reference";
-
-                RiskAssessment newRA = proxy.CreateRiskAssessment(ra);
-
-              // CreateAddressForRiskAssessment(newRA.SupplyReference);
-            }
-        }
-
+        RiskAssessment RiskAssessment { get; set; }
+        
         private void CreateAddress()
         {
             using (PWSHackathonClient.PSW_Service.AddressServiceClient proxy = new AddressServiceClient())
@@ -55,14 +42,24 @@ namespace PWSHackathonClient
             }
         }
 
+        private void UpdateAddress()
+        {
+            using (PWSHackathonClient.PSW_Service.AddressServiceClient proxy = new AddressServiceClient())
+            {
+                Address addy = CreateAddressFromScreen();
+
+                Address newAddy = proxy.UpdateAddress(addy);
+            }
+        }
+
         private void btnCreate_Click(object sender, RoutedEventArgs e)
         {
-            CreateRiskAssessment();
+            CreateAddress();
         }
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-
+            UpdateAddress();
         }
 
         private Address CreateAddressFromScreen()
@@ -79,6 +76,32 @@ namespace PWSHackathonClient
             ret.EMail = emailTxt.Text;
 
             return ret;
+        }
+
+        private List<Address> GetAddressesByRiskAssessment(string supplyRef)
+        {
+            List<Address> addresses;
+
+            using (PWSHackathonClient.PSW_Service.AddressServiceClient proxy = new AddressServiceClient())
+            {
+                addresses = proxy.GetAddressesByRiskAssessment(supplyRef).ToList();
+            }
+
+            if (addresses != null)
+            {
+                return addresses;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        private void BindAddressesToDataGrid()
+        {
+            //TODO: Bind to the datagrid once created.
+            //addressesDataGrid.DataSource
+            List<Address> addys = GetAddressesByRiskAssessment(RiskAssessment.SupplyReference);
         }
     }
 }
