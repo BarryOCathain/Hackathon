@@ -20,31 +20,33 @@
         </Grid.ColumnDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0" Height="25" VerticalAlignment="Top" Width="116" HorizontalAlignment="Left" Content="Supplier Ref"/>
-        <TextBox Name="laTxt" Grid.Row="1" Grid.Column="1" Width="250" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Margin="0,5,0,0"/>
+        <TextBox Name="supRefTxt" Grid.Column="1" Margin="1,6,0,0" Width="50" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" TextChanged="supRefTxt_TextChanged"/>
 
         <Label Grid.Row="1" Grid.Column="0" Height="25" VerticalAlignment="Top" Width="117" HorizontalAlignment="Left" Content="Local Authority" Grid.ColumnSpan="2"/>
-        <TextBox Name="supRefTxt" Grid.Column="1" Margin="1,6,0,0" Width="50" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25"/>
+        <TextBox Name="laTxt" Grid.Row="1" Grid.Column="1" Width="250" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Margin="0,5,0,0" TextChanged="laTxt_TextChanged" IsEnabled="False"/>
 
         <Label Grid.Row="2" Grid.Column="0" Height="25" VerticalAlignment="Top" Width="120" HorizontalAlignment="Left" Grid.ColumnSpan="2">Supplier Name</Label>
-        <TextBox Name="supNameTxt" Grid.Row="2" Grid.Column="1" Width="250" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Margin="0,5,0,0"/>
+        <TextBox Name="supNameTxt" Grid.Row="2" Grid.Column="1" Width="250" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Margin="0,5,0,0" TextChanged="supNameTxt_TextChanged" IsEnabled="False"/>
 
         <Label Grid.Row="3" Grid.Column="0" Height="25" VerticalAlignment="Top" Width="114" HorizontalAlignment="Left">Date Created</Label>
-        <DatePicker Name="dteCreated" Grid.Column="1" HorizontalAlignment="Left" Margin="7,5,0,0" Grid.Row="3" VerticalAlignment="Top" Height="24" Width="102"/>
+        <DatePicker Name="dteCreated" Grid.Column="1" HorizontalAlignment="Left" Margin="7,5,0,0" Grid.Row="3" VerticalAlignment="Top" Height="24" Width="102" SelectedDateChanged="dteCreated_SelectedDateChanged" IsEnabled="False"/>
         <Grid HorizontalAlignment="Left" Height="33" Margin="3,44,0,-41" Grid.Row="3" VerticalAlignment="Top" Width="234" RenderTransformOrigin="0.408,0.545" Grid.Column="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="99*"/>
-                <ColumnDefinition Width="58*"/>
+                <ColumnDefinition Width="64*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="43*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="btnCreate" Content="New" HorizontalAlignment="Left" Margin="9,5,0,0" VerticalAlignment="Top" Width="75" Click="btnCreate_Click" IsDefault="True"/>
-            <Button x:Name="btnFind" Content="Find" HorizontalAlignment="Left" Margin="131,6,0,0" VerticalAlignment="Top" Width="75" Click="btnFind_Click" Grid.ColumnSpan="2"/>
+            <Button x:Name="btnNew" Content="New" HorizontalAlignment="Left" Margin="0,0,0,6" VerticalAlignment="Bottom" Width="75" Click="btnNew_click" IsDefault="True"/>
+            <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="0,0,0,6" VerticalAlignment="Bottom" Width="75" Click="btnSave_Click" IsDefault="True"/>
+            <Button x:Name="btnFind" Content="Find" HorizontalAlignment="Left" Margin="8,5,0,0" VerticalAlignment="Top" Width="75" Click="btnFind_Click" Grid.ColumnSpan="2" Grid.Column="1"/>
         </Grid>
         <!--wpftk: Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" Name="dteCreated" SelectedDate="{Binding Path=Deadline}" Grid.ColumnSpan="2" Height="24" Margin="32,0,0,0" /-->
         <!--Frame Source="PageWithHyperlinks.xaml" Name="MyFrame" BorderBrush="SteelBlue" BorderThickness="2" /-->
-        <TextBlock Margin="8,100,150,-80" Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" Height="16">
-            <Hyperlink NavigateUri="AddressPage.xaml">Addresses</Hyperlink>
+        <TextBlock Name="addressesLink" Margin="8,100,150,-80" Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" Height="16" IsEnabled="False">
+            <Hyperlink NavigateUri="AddressPage.xaml" Click="Hyperlink_Click">Addresses</Hyperlink>
         </TextBlock>
-        <TextBlock Margin="124,100,0,-80" Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" HorizontalAlignment="Left" Width="121" Height="16">
-           <Hyperlink NavigateUri="RiskPage.xaml">Risk Assessment</Hyperlink>
+        <TextBlock Name="risksLink" Margin="124,100,0,-80" Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" HorizontalAlignment="Left" Width="121" Height="16" IsEnabled="False">
+           <Hyperlink NavigateUri="RiskPage.xaml" Click="Hyperlink_Click_1">Risk Assessment</Hyperlink>
         </TextBlock>
     </Grid>
 </Page>

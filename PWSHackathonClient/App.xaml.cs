@@ -14,6 +14,7 @@ namespace PWSHackathonClient
     /// </summary>
     public partial class App : Application
     {
-      
+        public static PSW_Service.RiskAssessment RiskAssessment { get; set; }
+
     }
 }
