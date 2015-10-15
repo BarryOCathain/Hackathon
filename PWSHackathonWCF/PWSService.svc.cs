@@ -47,6 +47,10 @@ namespace PWSHackathonWCF
             return _addressService.UpdateAddress(address);
         }
 
+        public List<Address> GetAddressesByRiskAssessment(string riskAssessmentSupplyRef)
+        {
+            return _addressService.GetAddressesByRiskAssessment(riskAssessmentSupplyRef);
+        }
 
         public RiskAssessment CreateRiskAssessment(RiskAssessment riskAssessment)
         {

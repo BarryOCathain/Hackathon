@@ -23,8 +23,7 @@ namespace PWSHackathonWCF
         [OperationContract]
         List<Address> GetAllAddresses();
 
+        [OperationContract]
+        List<Address> GetAddressesByRiskAssessment(string riskAssessmentSupplyRef);
     }
-
-
- 
 }
