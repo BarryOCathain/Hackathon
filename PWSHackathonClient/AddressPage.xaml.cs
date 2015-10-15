@@ -23,19 +23,14 @@ namespace PWSHackathonClient
     /// </summary>
     public partial class AddressPage : Page
     {
-        private string _supplyRef;
-              
+        
         public AddressPage()
         {
             InitializeComponent();
         }
 
-        public AddressPage(string supplyRef)
-        {
-            InitializeComponent();
-            _supplyRef = supplyRef;
-        }
-
+        RiskAssessment RiskAssessment { get; set; }
+        
         private void CreateAddress()
         {
             using (PWSHackathonClient.PSW_Service.AddressServiceClient proxy = new AddressServiceClient())
@@ -106,7 +101,7 @@ namespace PWSHackathonClient
         {
             //TODO: Bind to the datagrid once created.
             //addressesDataGrid.DataSource
-            List<Address> addys = GetAddressesByRiskAssessment(_supplyRef);
+            List<Address> addys = GetAddressesByRiskAssessment(RiskAssessment.SupplyReference);
         }
     }
 }
