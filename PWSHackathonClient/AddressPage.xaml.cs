@@ -27,9 +27,8 @@ namespace PWSHackathonClient
         public AddressPage()
         {
             InitializeComponent();
+            BindAddressesToDataGrid();
         }
-
-        RiskAssessment RiskAssessment { get; set; }
         
         private void CreateAddress()
         {
@@ -101,8 +100,17 @@ namespace PWSHackathonClient
         private void BindAddressesToDataGrid()
         {
             //TODO: Bind to the datagrid once created.
-            //addressesDataGrid.DataSource
-            List<Address> addys = GetAddressesByRiskAssessment(RiskAssessment.SupplyReference);
+            List<Address> addys = GetAddressesByRiskAssessment(App.RiskAssessment.SupplyReference);
+
+            // construct the dataset
+            //System.Data.DataSet dataset = new System.Data.DataSet();
+
+            //// use a table adapter to populate the Customers table
+            //CustomersTableAdapter adapter = new CustomersTableAdapter();
+            //adapter.Fill(dataset.Customers);
+
+            // use the Customer table as the DataContext for this Window
+            addressDataGrid.DataContext = addys;
         }
     }
 }

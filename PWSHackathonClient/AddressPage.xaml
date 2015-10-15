@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PWSHackathonClient"
         WindowTitle="Address Info" Height="450" Width="350">
 
-    <Grid HorizontalAlignment="Left" Margin="10,10,0,10" Width="481">
+    <Grid HorizontalAlignment="Left" Margin="10,0,-450,10" Width="790">
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
             <RowDefinition Height="35"/>
@@ -25,7 +25,7 @@
 
         <Label Grid.Row="1" Grid.Column="0" Height="25" VerticalAlignment="Top" Width="60" HorizontalAlignment="Left"/>
         <StackPanel Orientation="Vertical" Grid.Column="0" HorizontalAlignment="Left" Width="400" Grid.ColumnSpan="7" Margin="34,0,0,84" Grid.RowSpan="2" Grid.Row="1">
-            <Grid Margin="0,0,68,0">
+            <Grid Margin="0,0,-89,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="25"/>
                     <RowDefinition Height="25"/>
@@ -41,34 +41,38 @@
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="66*"/>
-                    <ColumnDefinition Width="155*"/>
+                    <ColumnDefinition Width="12*"/>
+                    <ColumnDefinition Width="34*"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="65*"/>
+                    <ColumnDefinition Width="90*"/>
                     <ColumnDefinition Width="111*"/>
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Row="0" Content="Address" FontSize="16" Margin="0,-30,0,10"/>
+                <Label Grid.Row="0" Content="Address" FontSize="16" Margin="0,-30,0,10" HorizontalAlignment="Left" Width="66" Grid.ColumnSpan="3"/>
 
-                <Label Grid.Row="1" Grid.Column="0" Content="Name"/>
-                <TextBox Grid.Row="1" Grid.Column="1" x:Name="addNameTxt" Grid.ColumnSpan="2"/>
+                <Label Grid.Row="1" Grid.Column="0" Content="Name" Grid.ColumnSpan="3"/>
+                <TextBox Grid.Row="1" Grid.Column="3" x:Name="addNameTxt" Grid.ColumnSpan="3"/>
 
-                <TextBox Grid.Row="2" Grid.Column="1" x:Name="line1Txt"  Grid.ColumnSpan="2"/>
-                <TextBox Grid.Row="3" Grid.Column="1" x:Name="line2Txt"  Grid.ColumnSpan="2"/>
-                <TextBox Grid.Row="4" Grid.Column="1" x:Name="line3Txt" Grid.ColumnSpan="2"/>
-                <TextBox Grid.Row="5" Grid.Column="1" x:Name="line4Txt"  Grid.ColumnSpan="2"/>
+                <TextBox Grid.Row="2" Grid.Column="3" x:Name="line1Txt"  Grid.ColumnSpan="3"/>
+                <TextBox Grid.Row="3" Grid.Column="3" x:Name="line2Txt"  Grid.ColumnSpan="3"/>
+                <TextBox Grid.Row="4" Grid.Column="3" x:Name="line3Txt" Grid.ColumnSpan="3"/>
+                <TextBox Grid.Row="5" Grid.Column="3" x:Name="line4Txt"  Grid.ColumnSpan="3"/>
 
-                <Label Grid.Row="6" Grid.Column="0" Content="Post Code"  />
-                <TextBox x:Name="postCodeTxt" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2"/>
+                <Label Grid.Row="6" Grid.Column="0" Content="Post Code" Grid.ColumnSpan="3"  />
+                <TextBox x:Name="postCodeTxt" Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="3"/>
 
-                <Label Grid.Row="7" Grid.Column="0" Content="Tel" />
-                <TextBox x:Name="telPhoneTxt" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2"/>
+                <Label Grid.Row="7" Grid.Column="0" Content="Tel" Grid.ColumnSpan="3" />
+                <TextBox x:Name="telPhoneTxt" Grid.Row="7" Grid.Column="3" Grid.ColumnSpan="3"/>
 
-                <Label Grid.Row="8" Grid.Column="0" Content="Email"/>
-                <TextBox x:Name="emailTxt" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan = "2"/>
+                <Label Grid.Row="8" Grid.Column="0" Content="Email" Grid.ColumnSpan="3"/>
+                <TextBox x:Name="emailTxt" Grid.Row="8" Grid.Column="3" Grid.ColumnSpan = "3"/>
 
-                <Button Grid.Row="10" Grid.Column="1" x:Name="btnCreate" Click="btnCreate_Click" Content="Create" Margin="33,1,68,-1" HorizontalAlignment="Center" Width="50" Height="25"/>
-                <Button Grid.Row="10" Grid.Column="2" x:Name="btnUpdate" Click="btnUpdate_Click" Content="Update" VerticalAlignment="Bottom" Margin="14,0,27,0" HorizontalAlignment="Center" Height="25" Width="50"/>
+                <Button Grid.Row="10" Grid.Column="3" x:Name="btnCreate" Click="btnCreate_Click" Content="Create" Margin="35,1,70,-1" HorizontalAlignment="Center" Width="50" Height="25" Grid.ColumnSpan="2"/>
+                <Button Grid.Row="10" Grid.Column="5" x:Name="btnUpdate" Click="btnUpdate_Click" Content="Update" VerticalAlignment="Bottom" Margin="24,0,37,0" HorizontalAlignment="Center" Height="25" Width="50"/>
             </Grid>
         </StackPanel>
+        <DataGrid x:Name="addressDataGrid" HorizontalAlignment="Left" Margin="19,248,0,0" Grid.Row="2" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="95" Width="508" ItemsSource="{Binding}"/>
 
 
     </Grid>
