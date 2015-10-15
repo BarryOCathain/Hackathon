@@ -38,6 +38,10 @@ namespace PWSHackathonClient
                 Address addr = CreateAddressFromScreen();            
 
                 Address newAddress = proxy.CreateAddress(addr);
+                if (newAddress != null)
+                {
+                    MessageBox.Show("Address saved");
+                }
                 
             }
         }
@@ -49,6 +53,10 @@ namespace PWSHackathonClient
                 Address addy = CreateAddressFromScreen();
 
                 Address newAddy = proxy.UpdateAddress(addy);
+                if (newAddy != null)
+                {
+                    MessageBox.Show("Address saved");
+                }
             }
         }
 
@@ -74,7 +82,7 @@ namespace PWSHackathonClient
             ret.PostCode = postCodeTxt.Text;
             ret.TelephoneNumber = telPhoneTxt.Text;
             ret.EMail = emailTxt.Text;
-
+            ret.RiskAssessmentSupplyRef = App.RiskAssessment.SupplyReference;
             return ret;
         }
 
@@ -87,14 +95,7 @@ namespace PWSHackathonClient
                 addresses = proxy.GetAddressesByRiskAssessment(supplyRef).ToList();
             }
 
-            if (addresses != null)
-            {
-                return addresses;
-            }
-            else
-            {
-                return null;
-            }
+            return addresses;
         }
 
         private void BindAddressesToDataGrid()

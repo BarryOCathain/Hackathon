@@ -26,7 +26,7 @@ namespace PWSHackathonWCF
                 }
                 
                 var dbAddress = MappingHelper.WCFAddressToDALAddress(address);               
-                dbAddress.ID = riskAssessment.ID;
+                dbAddress.RiskAssessmentID = riskAssessment.ID;
 
                 _db.Addresses.Add(dbAddress);
                 _db.SaveChanges();
